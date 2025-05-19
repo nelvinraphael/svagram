@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SVA Gram | Architecture Studio</title>
+  <title>Svagram | Architecture Studio</title>
   <style>
     * {
       box-sizing: border-box;
@@ -37,20 +37,28 @@
     }
 
     .hero {
+      background-image: url('https://images.unsplash.com/photo-1501183638710-841dd1904471');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 100px 20px 60px;
-      background-color: #f5f5f7;
+      color: #fff;
+      padding: 0 20px;
     }
 
     .hero h2 {
       font-size: 3rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 1.25rem;
-      color: #555;
+      max-width: 600px;
     }
 
     section {
@@ -79,6 +87,7 @@
       text-align: center;
       transition: transform 0.3s ease;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
     }
 
     .card:hover {
@@ -116,6 +125,33 @@
       background-color: #1ebe5c;
     }
 
+    .popup-icons {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .popup-icons a {
+      background-color: #000;
+      color: #fff;
+      padding: 12px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-icons a:hover {
+      background-color: #333;
+    }
+
     footer {
       background-color: #f2f2f2;
       padding: 40px 20px;
@@ -133,73 +169,51 @@
       text-decoration: underline;
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <img src="logo.png" alt="SVA Gram Logo">
-    <h1>SVA Gram</h1>
+    <img src="https://instagram.fdel1-2.fna.fbcdn.net/v/t51.2885-15/294065102_421270276643529_8105372635785086236_n.jpg?..." alt="Svagram Logo">
+    <h1>Svagram</h1>
   </header>
 
-  <!-- Hero -->
   <div class="hero">
-    <h2>Designing with Purpose</h2>
-    <p>Architectural journeys shaped by context, culture, and community.</p>
+    <h2>Architecture Beyond Form</h2>
+    <p>We create spaces that inspire, integrate, and endure. Explore our featured work.</p>
   </div>
 
-  <!-- Genres -->
   <section>
-    <div class="section-title">Architecture Genres</div>
+    <div class="section-title">Featured Projects</div>
     <div class="grid">
-      <div class="card">
-        <h3>Residential</h3>
-        <p>Custom homes, urban housing, and sustainable living spaces.</p>
+      <div class="card" onclick="location.href='project1.html'">
+        <h3>Cliffside Residence</h3>
+        <p>A modern home nestled in the hills of Ernakulam.</p>
       </div>
-      <div class="card">
-        <h3>Institutional</h3>
-        <p>Designs for learning, culture, and civic engagement.</p>
+      <div class="card" onclick="location.href='project2.html'">
+        <h3>Angamaly Civic Square</h3>
+        <p>Public realm proposal blending culture and community.</p>
       </div>
-      <div class="card">
-        <h3>Commercial</h3>
-        <p>Workspaces and retail design with impact and efficiency.</p>
-      </div>
-      <div class="card">
-        <h3>Heritage</h3>
-        <p>Reviving vernacular, restoring legacy, and adaptive reuse.</p>
+      <div class="card" onclick="location.href='project3.html'">
+        <h3>Vernacular Revival Studio</h3>
+        <p>Design for artisanship and heritage storytelling.</p>
       </div>
     </div>
   </section>
 
-  <!-- Updates -->
-  <section>
-    <div class="section-title">Studio Updates</div>
-    <div class="grid">
-      <div class="card">
-        <h3>May 2025</h3>
-        <p>Unveiled new project: Cliffside Residence in Ernakulam.</p>
-      </div>
-      <div class="card">
-        <h3>April 2025</h3>
-        <p>Presented civic plaza proposal to Angamaly municipality.</p>
-      </div>
-      <div class="card">
-        <h3>March 2025</h3>
-        <p>Workshop on heritage revival with rural artisans concluded.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WhatsApp Button -->
   <button class="contact-button" onclick="window.open('https://wa.me/919020515114', '_blank')">
     💬 WhatsApp Us
   </button>
 
-  <!-- Footer -->
+  <div class="popup-icons">
+    <a href="mailto:project@svagram.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.instagram.com/sva.gram/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
   <footer>
     <p>Contact: <a href="mailto:project@svagram.com">project@svagram.com</a> | Phone: <a href="tel:+919020515114">9020515114</a><br>
     Address: B32, Angamaly | <a href="https://www.instagram.com/sva.gram/" target="_blank">@sva.gram</a></p>
-    <p>&copy; 2025 SVA Gram. All rights reserved.</p>
+    <p>&copy; 2025 Svagram. All rights reserved.</p>
   </footer>
 
 </body>
