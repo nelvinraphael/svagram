@@ -2,197 +2,162 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SVAGRAM | Architectural Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
   <!-- Header -->
-  <header class="site-header">
-    <div class="container header-container">
-      <div class="logo">svagram</div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li class="dropdown">
-            <a href="#projects">Projects ▼</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Residential</a></li>
-              <li><a href="#">Commercial</a></li>
-              <li><a href="#">Institutional</a></li>
-            </ul>
-          </li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="header">
+    <div class="logo">svagram</div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <div class="dropdown">
+        <a href="#projects">Projects ▼</a>
+        <div class="dropdown-content">
+          <a href="#residential">Residential</a>
+          <a href="#commercial">Commercial</a>
+          <a href="#institutional">Institutional</a>
+        </div>
+      </div>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-overlay">
       <h1>SVAGRAM</h1>
-      <p>“sva: (sanskrit : self/own)<br>gram: (Sanskrit : village)”</p>
-      <a href="#projects" class="cta-btn">View Portfolio</a>
+      <p>“sva: (sanskrit : self/own)<br />gram: (Sanskrit : village)”</p>
+      <a href="#projects" class="cta">View Portfolio</a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container about-container">
+  <section id="about" class="section about">
+    <div class="about-content">
       <div class="about-text">
         <p>
-          Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns.
-          In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem,
-          welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.
-          We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process,
+          Each person builds their abode with dreams that reflect their unique identity,
+          purpose, design, space, and patterns. In crafting these homes, they don't just
+          build structures on plots of land; they cultivate an entire ecosystem,
+          welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes
+          the balance and harmony of a village. We hold the belief that such homes cannot
+          be solely envisioned by architects. They emerge through a collaborative process,
           where the client's aspirations meld seamlessly with our expertise and craftsmanship.
         </p>
       </div>
       <div class="about-image">
-        <img src="P1.jpeg" alt="Profile Image">
+        <img src="https://via.placeholder.com/400x400" alt="Profile" />
       </div>
     </div>
-    <hr class="divider">
+    <hr class="divider" />
   </section>
 
-  <!-- Featured Projects -->
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="project-grid">
-        <!-- Repeat this block for 9 projects -->
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <div class="project-card">
-          <img src="https://via.placeholder.com/400x300" alt="Project Image">
-          <h3>Project Name</h3>
-          <p>Short description of the project.</p>
-        </div>
-        <!-- ... (8 more cards) ... -->
+  <!-- Projects Grid -->
+  <section id="projects" class="section">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x400" alt="Project" />
+        <h3>Project 1</h3>
+        <p>Residential villa in urban fringe</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x500" alt="Project" />
+        <h3>Project 2</h3>
+        <p>Modern commercial block</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x300" alt="Project" />
+        <h3>Project 3</h3>
+        <p>Institutional campus masterplan</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x350" alt="Project" />
+        <h3>Project 4</h3>
+        <p>Eco-resort in rural setting</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x450" alt="Project" />
+        <h3>Project 5</h3>
+        <p>Heritage site revitalization</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x375" alt="Project" />
+        <h3>Project 6</h3>
+        <p>Community center with local crafts</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x320" alt="Project" />
+        <h3>Project 7</h3>
+        <p>Affordable housing cluster</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x360" alt="Project" />
+        <h3>Project 8</h3>
+        <p>Student hostel and amenities</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/600x390" alt="Project" />
+        <h3>Project 9</h3>
+        <p>Riverside retreat design</p>
       </div>
     </div>
   </section>
 
   <!-- Updates Section -->
-  <section class="updates-section">
-    <div class="container">
-      <h2>Updates</h2>
-      <div class="updates-list">
-        <div class="update-card">
-          <h4>New Project Launched</h4>
-          <small>May 2025</small>
-          <p>We’ve started a new residential project in Rajgir focused on vernacular techniques.</p>
-        </div>
-        <div class="update-card">
-          <h4>Feature in Design Magazine</h4>
-          <small>April 2025</small>
-          <p>SVAGRAM was featured in Architectural Digest India.</p>
-        </div>
+  <section id="updates" class="section">
+    <h2 class="section-title">Latest Updates</h2>
+    <div class="updates-list">
+      <div class="update-card">
+        <h3>New Campus Design Approved</h3>
+        <p class="date">April 10, 2025</p>
+        <p>We are excited to share that our institutional design proposal has been greenlit.</p>
+      </div>
+      <div class="update-card">
+        <h3>Workshop at Rajgir</h3>
+        <p class="date">March 25, 2025</p>
+        <p>Team SVAGRAM conducted a hands-on session on vernacular design approaches.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2>Let’s Collaborate</h2>
-      <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
-    </div>
+  <section id="contact" class="section">
+    <h2 class="section-title">Let's Collaborate</h2>
+    <p>Email us at <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
   </section>
 
   <!-- Floating Buttons -->
-  <a
-  href="https://wa.me/919020515114"
-  target="_blank"
-  rel="noopener"
-  class="floating-btn whatsapp"
-  aria-label="WhatsApp"
->
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<a
-  href="https://www.instagram.com/sva.gram?igsh=OTR0NnE1ZHkzZzRt"
-  target="_blank"
-  rel="noopener"
-  class="floating-btn instagram"
-  aria-label="Instagram"
->
-  <i class="fab fa-instagram"></i>
-</a>
+  <a href="https://wa.me/919020515114" class="floating-btn whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://www.instagram.com/sva.gram?igsh=OTR0NnE1ZHkzZzRt" class="floating-btn instagram" target="_blank" rel="noopener" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-nav">
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-social">
-        <a href="https://wa.me/919020515114">WhatsApp</a>
-        <a href="https://www.instagram.com/sva.gram?igsh=OTR0NnE1ZHkzZzRt">Instagram</a>
-      </div>
-      <p>&copy; 2025 SVAGRAM. All rights reserved.</p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-icons">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-whatsapp"></i>
     </div>
+    <p>&copy; 2025 SVAGRAM. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Dropdown toggle
-    document.querySelector('.dropdown > a').addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector('.dropdown-menu').classList.toggle('show');
-    });
-
-    // Close dropdown on outside click
-    window.addEventListener('click', function (e) {
-      if (!e.target.closest('.dropdown')) {
-        document.querySelector('.dropdown-menu').classList.remove('show');
-      }
-    });
-  </script>
 </body>
 
 </html>
