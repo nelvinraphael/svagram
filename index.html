@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Svagram | Architectural Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SVAGRAM | Architecture Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+
   <!-- Header -->
   <header class="header">
-    <div class="logo">Svagram</div>
+    <div class="logo">svagram</div>
     <nav class="nav">
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li class="dropdown">
-          <a href="#projects">Projects</a>
+        <li class="dropdown" id="projectDropdown">
+          <a onclick="toggleDropdown()">Projects</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Residential</a></li>
-            <li><a href="#">Commercial</a></li>
-            <li><a href="#">Institutional</a></li>
+            <li>Residential</li>
+            <li>Commercial</li>
+            <li>Institutional</li>
           </ul>
         </li>
         <li><a href="#team">Team</a></li>
@@ -32,78 +31,95 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-content">
       <h1>SVAGRAM</h1>
-      <p>sva: (sanskrit : self/own)<br>gram: (Sanskrit : village)</p>
+      <p>sva: (Sanskrit : self/own)<br>gram: (Sanskrit : village)</p>
       <a href="#projects" class="btn">View Portfolio</a>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about">
+  <section class="about" id="about">
     <div class="about-text">
-      <p>Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.<br><br>
-        We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, where the client's aspirations meld seamlessly with our expertise and craftsmanship.
+      <p>
+        Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. 
+        In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. 
+        Together, they nurture an ambiance that echoes the balance and harmony of a village.<br><br>
+        We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, 
+        where the client's aspirations meld seamlessly with our expertise and craftsmanship.
       </p>
     </div>
     <div class="about-image">
-      <img src="https://via.placeholder.com/400x400" alt="Profile">
+      <img src="https://via.placeholder.com/400x500" alt="Profile Image">
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="projects">
+  <section class="projects" id="projects">
     <h2>Featured Projects</h2>
     <div class="project-grid">
-      <!-- 9 project cards -->
       <div class="project-card">
-        <img src="https://via.placeholder.com/400x300" alt="Project">
-        <h3>Project Name</h3>
-        <p>Short description</p>
+        <img src="https://via.placeholder.com/400x300" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A modern residence immersed in nature.</p>
       </div>
-      <!-- Repeat the card 8 more times or with variation -->
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x250" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>Commercial space designed for collaboration.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x350" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>Minimalist design with local materials.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x275" alt="Project 4">
+        <h3>Project Four</h3>
+        <p>Adaptive reuse of a colonial structure.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x300" alt="Project 5">
+        <h3>Project Five</h3>
+        <p>A courtyard house for multi-generational living.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x240" alt="Project 6">
+        <h3>Project Six</h3>
+        <p>Learning center nestled in rural Bihar.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x330" alt="Project 7">
+        <h3>Project Seven</h3>
+        <p>Brick façade harmonizing with context.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x260" alt="Project 8">
+        <h3>Project Eight</h3>
+        <p>Community space around a central spine.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x300" alt="Project 9">
+        <h3>Project Nine</h3>
+        <p>Campus planning with pedestrian priority.</p>
+      </div>
     </div>
   </section>
 
   <!-- Updates Section -->
-  <section class="updates">
+  <section class="updates" id="updates">
     <h2>Updates</h2>
     <div class="update-list">
       <div class="update-item">
-        <h3>Title of Update</h3>
-        <span>Date</span>
-        <p>Short description of the update.</p>
+        <h3>New project launch</h3>
+        <span>May 2025</span>
+        <p>We’ve just started design development for a sustainable farmhouse in Rajgir hills.</p>
       </div>
-      <!-- More updates -->
+      <div class="update-item">
+        <h3>Publication feature</h3>
+        <span>April 2025</span>
+        <p>Our residential project was recently published in Indian Architect & Builder.</p>
+      </div>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>We’d love to hear from you! Reach out for collaborations or project inquiries.</p>
-    <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
-  </section>
-
-  <!-- Floating Buttons -->
-  <a href="https://wa.me/919020515114" class="floating-button whatsapp" target="_blank">WhatsApp</a>
-  <a href="https://www.instagram.com/sva.gram?igsh=OTR0NnE1ZHkzZzRt" class="floating-button instagram" target="_blank">Instagram</a>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <nav>
-      <a href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="social-icons">
-      <!-- Use icons if available -->
-    </div>
-    <p>&copy; 2025 Svagram. All rights reserved.</p>
-  </footer>
-</body>
-
-</html>
+  </sec
