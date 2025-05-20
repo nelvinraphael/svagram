@@ -46,6 +46,11 @@ img {
   position: relative;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 .dropdown-content {
   display: none;
   position: absolute;
