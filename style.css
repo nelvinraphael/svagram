@@ -1,293 +1,158 @@
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svagram - Architecture Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">svagram</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li class="dropdown" id="projectDropdown">
+          <a onclick="toggleDropdown()">Projects</a>
+          <ul class="dropdown-menu">
+            <li>Residential</li>
+            <li>Commercial</li>
+            <li>Institutional</li>
+          </ul>
+        </li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #ffffff;
-  color: #000000;
-  line-height: 1.6;
-}
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>SVAGRAM</h1>
+      <p>“sva: (sanskrit : self/own)<br>gram: (Sanskrit : village)”</p>
+      <a href="#projects" class="btn">View Portfolio</a>
+    </div>
+  </section>
 
-img {
-  max-width: 100%;
-  display: block;
-}
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <p>
+        Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.<br><br>
+        We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, where the client's aspirations meld seamlessly with our expertise and craftsmanship.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://via.placeholder.com/400x400" alt="Profile Image">
+    </div>
+  </section>
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 1">
+        <h3>Project One</h3>
+        <p>Modern Residence Design</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x250" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>Urban Commercial Space</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x180" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>Institutional Campus Plan</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x220" alt="Project 4">
+        <h3>Project Four</h3>
+        <p>Vernacular Courtyard Home</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x210" alt="Project 5">
+        <h3>Project Five</h3>
+        <p>Co-Working Studio Interior</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 6">
+        <h3>Project Six</h3>
+        <p>Brick Façade Office Block</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x190" alt="Project 7">
+        <h3>Project Seven</h3>
+        <p>Community Pavilion</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x240" alt="Project 8">
+        <h3>Project Eight</h3>
+        <p>Landscape Masterplan</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x230" alt="Project 9">
+        <h3>Project Nine</h3>
+        <p>Minimalist Weekend Home</p>
+      </div>
+    </div>
+  </section>
 
-/* Header */
-.header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-  z-index: 1000;
-}
+  <!-- Updates Section -->
+  <section class="updates">
+    <h2>Updates</h2>
+    <div class="update-list">
+      <div class="update-item">
+        <h3>New Project Launch</h3>
+        <span>May 2025</span>
+        <p>We're excited to share a new institutional design underway in Nalanda.</p>
+      </div>
+      <div class="update-item">
+        <h3>Workshop Participation</h3>
+        <span>April 2025</span>
+        <p>We presented at the Sustainable Architecture Forum in Kochi.</p>
+      </div>
+    </div>
+  </section>
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #930203;
-}
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Let's Connect</h2>
+    <p>Email us at <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
+  </section>
 
-.nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
+  <!-- Floating Buttons -->
+  <a href="https://wa.me/919020515114" class="floating-button" target="_blank">Chat on WhatsApp</a>
+  <a href="https://www.instagram.com/sva.gram?igsh=OTR0NnE1ZHkzZzRt" class="floating-button instagram" target="_blank">Instagram</a>
 
-.nav a {
-  font-weight: 500;
-  transition: color 0.3s;
-  cursor: pointer;
-}
+  <!-- Footer -->
+  <footer class="footer">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>&copy; 2025 Svagram. All rights reserved.</p>
+  </footer>
 
-.nav a:hover {
-  color: #930203;
-}
+  <script>
+    function toggleDropdown() {
+      document.getElementById("projectDropdown").classList.toggle("active");
+    }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 10;
-  white-space: nowrap;
-}
-
-.dropdown.active .dropdown-menu {
-  display: flex;
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-.dropdown-menu li {
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  background: url('https://via.placeholder.com/1600x800') center/cover no-repeat;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  position: relative;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn {
-  background: #930203;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  font-weight: 500;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #700202;
-}
-
-/* About Section */
-.about {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 4rem 2rem;
-  align-items: center;
-  border-top: 2px solid #930203;
-}
-
-.about-text {
-  flex: 1 1 50%;
-}
-
-.about-image {
-  flex: 1 1 40%;
-}
-
-.about-image img {
-  border-radius: 10px;
-}
-
-/* Projects Section */
-.projects {
-  padding: 4rem 2rem;
-}
-
-.projects h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #930203;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.project-card {
-  background: #fff;
-  border: 1px solid #eee;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.project-card h3 {
-  padding: 1rem;
-  color: #930203;
-}
-
-.project-card p {
-  padding: 0 1rem 1rem;
-}
-
-/* Updates Section */
-.updates {
-  padding: 4rem 2rem;
-  background: #f9f9f9;
-}
-
-.updates h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #930203;
-}
-
-.update-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 800px;
-  margin: auto;
-}
-
-.update-item h3 {
-  color: #000;
-}
-
-.update-item span {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-/* Contact Section */
-.contact {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.contact h2 {
-  color: #930203;
-  margin-bottom: 1rem;
-}
-
-.contact a {
-  color: #930203;
-  font-weight: 500;
-}
-
-/* Floating Buttons */
-.floating-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  margin-top: 10px;
-  background: #930203;
-  color: #fff;
-  padding: 0.7rem 1rem;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  z-index: 1000;
-  display: inline-block;
-  text-align: center;
-}
-
-.floating-button.instagram {
-  bottom: 70px;
-  background: #000;
-}
-
-/* Footer */
-.footer {
-  background: #000;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-}
-
-.footer nav a {
-  margin: 0 1rem;
-  color: #fff;
-  font-weight: 500;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .about {
-    flex-direction: column;
-  }
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .nav ul {
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1rem;
-  }
-}
+    window.addEventListener('click', function(e) {
+      const dropdown = document.getElementById("projectDropdown");
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>
