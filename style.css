@@ -43,6 +43,7 @@ img { display: block; width: 100%; }
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  justify-content: flex-start;
 }
 .nav-links a {
   text-decoration: none;
