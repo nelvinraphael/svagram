@@ -1,188 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SVAGRAM</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading | Architecture Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .dot {
+      animation: fadeInOut 1.4s infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+  </style>
 </head>
-
-<body>
-  <!-- Fixed Logo -->
-  <div class="fixed-logo">svagram</div>
-
-  <!-- Header -->
-  <header class="main-header">
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <div class="dropdown">
-        <a href="#projects" class="dropbtn">Projects ▼</a>
-        <div class="dropdown-content">
-          <a href="#residential">Residential</a>
-          <a href="#commercial">Commercial</a>
-          <a href="#institutional">Institutional</a>
-        </div>
-      </div>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-overlay">
-      <h1>SVAGRAM</h1>
-      <p>sva: (Sanskrit: self/own)<br>gram: (Sanskrit: village)</p>
-      <a href="#projects" class="btn">View Portfolio</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="about-content">
-      <div class="text">
-        <p>
-          Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.
-        </p>
-        <p>
-          We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, where the client's aspirations meld seamlessly with our expertise and craftsmanship.
-        </p>
-      </div>
-      <div class="image">
-        <img src="P1.jpeg" alt="Profile" />
-      </div>
-    </div>
-    <hr class="divider" />
-  </section>
-
-  <!-- Featured Projects -->
-  <section class="projects" id="projects">
-    <h2>Featured Projects</h2>
-    <div class="project-grid">
-     
-      <div class="project-card">
-        <img src="P1.jpeg" alt="Project 1" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P2.jpeg" alt="Project 2" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P3.jpeg" alt="Project 3" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P4.jpeg" alt="Project 4" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P5.jpeg" alt="Project 5" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P6.jpeg" alt="Project 6" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P7.jpeg" alt="Project 7" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P1.jpeg" alt="Project 8" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      <div class="project-card">
-        <img src="P2.jpeg" alt="Project 9" />
-        <h3>Project Name 1</h3>
-        <p>One-line description of the project.</p>
-      </div>
-
-      
-    </div>
-  </section>
-
-  <!-- Updates Section -->
-  <section class="updates">
-    <h2>Updates</h2>
-    <div class="update-list">
-      <div class="update-card">
-        <h3>New Studio Opening</h3>
-        <p class="date">April 2025</p>
-        <p>We’ve moved into a new space tailored for collaborative design!</p>
-      </div>
-      <div class="update-card">
-        <h3>Workshop on Sustainable Living</h3>
-        <p class="date">March 2025</p>
-        <p>Join us for a session on building practices rooted in sustainability and community.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="team" id="team">
-    <h2>Our Team</h2>
-    <div class="team-grid">
-      <div class="team-member">
-        <img src="1.jpg" alt="Member 1" />
-        <h3><img src="1.jpg" alt="Logo" /> Ananya Sharma</h3>
-        <p>Principal Architect</p>
-      </div>
-      <div class="team-member">
-        <img src="1.jpg" alt="Member 1" />
-        <h3><img src="1.jpg" alt="Logo" /> Ananya Sharma</h3>
-        <p>Principal Architect</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>Let’s build together. Reach out to us:</p>
-    <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/919020515114">+91 9020515114</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/sva.gram">@sva.gram</a></p>
-    <p>Address:<br>
-      SVAGRAM Studio,<br>
-      123 Architecture Lane,<br>
-      Patna, Bihar, India</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-social">
-      <a href="https://wa.me/919020515114">WhatsApp</a>
-      <a href="https://www.instagram.com/sva.gram">Instagram</a>
-    </div>
-    <p>&copy; 2025 SVAGRAM. All rights reserved.</p>
-  </footer>
+<body class="bg-white flex items-center justify-center h-screen">
+  <div class="text-center">
+    <div class="text-2xl font-semibold tracking-widest text-gray-800">Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+    <div class="mt-4 text-sm text-gray-500">Please wait while we prepare the experience.</div>
+  </div>
 </body>
-
 </html>
