@@ -296,7 +296,7 @@ img {
     box-shadow: none;
   }
 }
-/* Change all text to red on hover for links and headings */
+/* Hover effect: turn text red and slightly bold */
 a:hover,
 .nav-links a:hover,
 .team-member h4:hover,
@@ -305,5 +305,6 @@ a:hover,
 .update-card:hover h4,
 .update-card:hover p {
   color: #930203;
-  transition: color 0.3s ease;
+  font-weight: 600; /* slightly bold */
+  transition: color 0.3s ease, font-weight 0.3s ease;
 }
