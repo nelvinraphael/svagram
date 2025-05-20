@@ -51,6 +51,7 @@ a {
 .nav a {
   font-weight: 500;
   transition: color 0.3s;
+  cursor: pointer;
 }
 
 .nav a:hover {
@@ -69,14 +70,19 @@ a {
   background: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   z-index: 10;
+  white-space: nowrap;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
+.dropdown.active .dropdown-menu {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 .dropdown-menu li {
   padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 /* Hero Section */
