@@ -3,218 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Svagram | Architecture Studio</title>
+  <title>Svagram</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #111;
       background-color: #fff;
-      color: #1d1d1f;
       line-height: 1.6;
     }
 
     header {
+      position: fixed;
+      top: 0;
+      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 20px 40px;
-      background-color: #000;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
     }
 
-    header img {
-      height: 50px;
-    }
-
-    header h1 {
-      color: #fff;
+    .logo {
+      font-weight: bold;
       font-size: 1.5rem;
-      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
     }
 
     .hero {
-      background-image: url('https://images.unsplash.com/photo-1501183638710-841dd1904471');
-      background-size: cover;
-      background-position: center;
-      height: 80vh;
+      background: url('background.jpg') center/cover no-repeat;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #fff;
-      padding: 0 20px;
+      position: relative;
     }
 
-    .hero h2 {
+    .overlay-content {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .overlay-content h1 {
       font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
     }
 
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
+    .overlay-content p {
+      font-size: 1.2rem;
     }
 
-    section {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
+    .projects {
+      padding: 4rem 2rem;
+      background: #fafafa;
     }
 
-    .section-title {
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 30px;
+    .projects h2 {
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
     }
 
-    .card {
-      background: #f9f9f9;
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
+    .tile img {
+      width: 100%;
+      display: block;
       transition: transform 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      cursor: pointer;
+      border-radius: 6px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .tile:hover img {
+      transform: scale(1.03);
     }
 
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .contact-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      color: white;
-      padding: 16px 24px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-      z-index: 1000;
-    }
-
-    .contact-button:hover {
-      background-color: #1ebe5c;
-    }
-
-    .popup-icons {
-      position: fixed;
-      bottom: 100px;
-      right: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 1000;
-    }
-
-    .popup-icons a {
-      background-color: #000;
-      color: #fff;
-      padding: 12px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 20px;
-      transition: background-color 0.3s ease;
-    }
-
-    .popup-icons a:hover {
-      background-color: #333;
-    }
-
-    footer {
-      background-color: #f2f2f2;
-      padding: 40px 20px;
+    .contact {
+      padding: 3rem 2rem;
+      background: #fff;
       text-align: center;
-      font-size: 0.95rem;
-      color: #888;
     }
 
-    footer a {
-      color: #888;
+    .contact h2 {
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      margin-bottom: 1.5rem;
+    }
+
+    .icons a {
+      font-size: 2rem;
+      margin: 0 1rem;
       text-decoration: none;
+      color: #111;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .overlay-content h1 {
+        font-size: 2rem;
+      }
+
+      .overlay-content p {
+        font-size: 1rem;
+      }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <img src="logo.png." alt="Svagram Logo">
-    <h1>Svagram</h1>
+    <div class="logo">Svagram</div>
+    <nav>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="hero">
-    <h2>Architecture Beyond Form</h2>
-    <p>We create spaces that inspire, integrate, and endure. Explore our featured work.</p>
-  </div>
-
-  <section>
-    <div class="section-title">Featured Projects</div>
-    <div class="grid">
-      <div class="card" onclick="location.href='project1.html'">
-        <h3>Cliffside Residence</h3>
-        <p>A modern home nestled in the hills of Ernakulam.</p>
-      </div>
-      <div class="card" onclick="location.href='project2.html'">
-        <h3>Angamaly Civic Square</h3>
-        <p>Public realm proposal blending culture and community.</p>
-      </div>
-      <div class="card" onclick="location.href='project3.html'">
-        <h3>Vernacular Revival Studio</h3>
-        <p>Design for artisanship and heritage storytelling.</p>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay-content">
+      <h1>Svagram</h1>
+      <p>Designing spaces that inspire.</p>
     </div>
   </section>
 
-  <button class="contact-button" onclick="window.open('https://wa.me/919020515114', '_blank')">
-    💬 WhatsApp Us
-  </button>
+  <!-- Projects Section -->
+  <section id="work" class="projects">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <a class="tile" href="#"><img src="project1.jpg" alt="Project 1" /></a>
+      <a class="tile" href="#"><img src="project2.jpg" alt="Project 2" /></a>
+      <a class="tile" href="#"><img src="project3.jpg" alt="Project 3" /></a>
+      <a class="tile" href="#"><img src="project4.jpg" alt="Project 4" /></a>
+      <a class="tile" href="#"><img src="project5.jpg" alt="Project 5" /></a>
+      <a class="tile" href="#"><img src="project6.jpg" alt="Project 6" /></a>
+      <a class="tile" href="#"><img src="project7.jpg" alt="Project 7" /></a>
+      <a class="tile" href="#"><img src="project8.jpg" alt="Project 8" /></a>
+      <a class="tile" href="#"><img src="project9.jpg" alt="Project 9" /></a>
+    </div>
+  </section>
 
-  <div class="popup-icons">
-    <a href="mailto:project@svagram.com" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.instagram.com/sva.gram/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-  </div>
-
-  <footer>
-    <p>Contact: <a href="mailto:project@svagram.com">project@svagram.com</a> | Phone: <a href="tel:+919020515114">9020515114</a><br>
-    Address: B32, Angamaly | <a href="https://www.instagram.com/sva.gram/" target="_blank">@sva.gram</a></p>
-    <p>&copy; 2025 Svagram. All rights reserved.</p>
-  </footer>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p><strong>Address:</strong> B32, Angamaly, Kerala</p>
+    <div class="icons">
+      <a href="mailto:projects@svagram.com" title="Email">📧</a>
+      <a href="https://wa.me/919020515114" target="_blank" title="WhatsApp">💬</a>
+      <a href="https://www.instagram.com/sva.gram/" target="_blank" title="Instagram">📷</a>
+    </div>
+  </section>
 
 </body>
 </html>
