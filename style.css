@@ -1,218 +1,288 @@
-/* Base styles */
+/* General Styles */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  padding: 0;
   background: #fff;
   color: #000;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  background: transparent;  /* Make header transparent */
-  border-bottom: none;       /* Remove bottom border */
-  padding: 16px 0;
-  display: flex;
-  justify-content: center;   /* Center horizontally */
-  align-items: center;
-  gap: 12px;
-  z-index: 1000;
-}
-
-
-h1, h2, h3 {
-  font-weight: 700;
-}
-
-p {
-  font-weight: 300;
   line-height: 1.6;
 }
 
-section {
-  padding: 60px 20px;
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  border-bottom: none;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  /* Add a subtle shadow for readability on varied backgrounds */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.header img {
+  height: 40px;
+  width: 40px;
+}
+
+.header span {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Navigation Links for Desktop */
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 32px;
+  flex-grow: 1;
+  max-width: 600px;
+  margin-left: 40px; /* to space from logo */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  transition: color 0.3s, font-weight 0.3s;
+}
+
+.nav-links a:hover {
+  color: #930203;
+  font-weight: 700;
+}
+
+/* Hide nav links on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* Landing Page Main Container */
+.main-container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  background: #f8f8f8;
-  padding: 80px 20px;
-}
-
-.logo {
-  width: 150px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.tagline {
-  font-size: 24px;
-  color: #930203;
-  margin-bottom: 10px;
-}
-
-.mission {
-  font-size: 16px;
-  color: #555;
-  max-width: 800px;
-  margin: auto;
-}
-
-/* About */
-.about {
-  background: #fff;
-  text-align: center;
-}
-
-/* Projects */
-.projects .project-categories {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.project-categories button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  background: none;
-  border: 1px solid #930203;
-  color: #930203;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
-}
-
-.project-categories button:hover {
-  background: #930203;
-  color: #fff;
-}
-
-.project-grid {
+/* Project Grid */
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 40px auto;
 }
 
 .project-item {
-  text-align: center;
-  transition: transform 0.3s ease;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fafafa;
+  transition: box-shadow 0.3s;
 }
 
-.project-item img {
+.project-item:hover {
+  box-shadow: 0 8px 20px rgba(147, 2, 3, 0.3);
+}
+
+.project-image {
   width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 10px;
+  height: 180px;
+  object-fit: contain; /* no cropping */
+  border-bottom: 1px solid #ddd;
 }
 
-.project-item a {
-  text-decoration: none;
-  color: #000;
+.project-info {
+  padding: 12px;
 }
 
-.project-item a:hover h3,
-.project-item a:hover p {
+.project-title {
+  font-weight: 700;
+  margin-bottom: 6px;
   color: #930203;
-  font-weight: bold;
+  transition: color 0.3s, font-weight 0.3s;
 }
 
-/* Team */
-.team-members {
+.project-title:hover {
+  color: #650101;
+  font-weight: 900;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Team Section */
+.team-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
-  text-align: center;
+  gap: 24px;
+  margin: 40px 0;
 }
 
-.team-img {
-  width: 150px;
-  height: 150px;
+.team-member {
+  text-align: center;
+  width: 140px;
+  cursor: default;
+}
+
+.team-member img {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
+  transition: filter 0.3s;
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
 }
 
-.team-img:hover {
-  filter: grayscale(0%);
+.team-member:hover img {
+  filter: none;
 }
 
-/* Contact */
-.contact form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: auto;
+.team-member-title {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #333;
 }
 
-.contact input,
-.contact textarea {
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
-}
-
-.contact button {
-  background-color: #930203;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Footer */
-footer {
+/* Contact Section */
+.contact-section {
   text-align: center;
-  padding: 30px 20px;
-  background: #f0f0f0;
-  font-size: 14px;
-  color: #555;
+  margin: 60px 0;
+}
+
+.contact-button {
+  background-color: #930203;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.contact-button:hover {
+  background-color: #650101;
 }
 
 /* Floating Icons */
 .floating-icons {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px;
+  right: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  z-index: 999;
+  gap: 16px;
+  z-index: 10000;
 }
 
-.floating-icons .icon {
-  background-color: #930203;
-  color: white;
-  width: 44px;
-  height: 44px;
+.floating-icons a {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: #930203;
   border-radius: 50%;
+  color: white;
   text-decoration: none;
-  font-size: 20px;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(147, 2, 3, 0.5);
+  transition: background-color 0.3s;
 }
 
-.floating-icons .icon:hover {
+.floating-icons a:hover {
+  background-color: #650101;
+}
+
+/* Schedule Appointment Page Styles */
+.appointment-container {
+  max-width: 500px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.appointment-container h2 {
+  margin-bottom: 20px;
+  color: #930203;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  background: #930203;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
   background-color: #750202;
+}
+
+.back-home {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  color: #930203;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.confirmation-message {
+  margin-top: 20px;
+  color: green;
+  font-weight: 600;
+  text-align: center;
+  display: none;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .team-members {
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 90vw;
+  }
+
+  .team-grid {
     flex-direction: column;
     align-items: center;
-  }
-  .project-grid {
-    grid-template-columns: 1fr;
   }
 }
