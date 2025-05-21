@@ -1,10 +1,15 @@
-/* General Styles */
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
-  background: #fff;
-  color: #000;
-  line-height: 1.6;
+  background-color: white;
+  color: black;
+  line-height: 1.5;
 }
 
 /* Header */
@@ -13,17 +18,16 @@ body {
   top: 0;
   background: transparent;
   border-bottom: none;
-  padding: 16px 0;
+  padding: 16px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* center logo + text */
   align-items: center;
   gap: 12px;
   z-index: 1000;
-  /* Add a subtle shadow for readability on varied backgrounds */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-.header a {
+.header a.logo-link {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -31,30 +35,30 @@ body {
   color: black;
 }
 
-.header img {
+.header a.logo-link img {
   height: 40px;
   width: 40px;
 }
 
-.header span {
+.header a.logo-link span {
   font-weight: 700;
   font-size: 1.25rem;
 }
 
-/* Navigation Links for Desktop */
+/* Navigation */
 .nav-links {
   display: flex;
-  justify-content: space-evenly;
-  gap: 32px;
   flex-grow: 1;
   max-width: 600px;
-  margin-left: 40px; /* to space from logo */
+  justify-content: space-evenly;
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .nav-links a {
   text-decoration: none;
   color: black;
-  font-weight: 600;
   transition: color 0.3s, font-weight 0.3s;
 }
 
@@ -63,21 +67,21 @@ body {
   font-weight: 700;
 }
 
-/* Hide nav links on mobile */
+/* Hide nav on mobile */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
 }
 
-/* Landing Page Main Container */
+/* Main container */
 .main-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Project Grid */
+/* Projects grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -87,12 +91,12 @@ body {
 }
 
 .project-item {
+  background: #fafafa;
   border: 1px solid #ddd;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  background: #fafafa;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s ease;
 }
 
 .project-item:hover {
@@ -112,8 +116,8 @@ body {
 
 .project-title {
   font-weight: 700;
-  margin-bottom: 6px;
   color: #930203;
+  margin-bottom: 6px;
   transition: color 0.3s, font-weight 0.3s;
 }
 
@@ -127,7 +131,7 @@ body {
   color: #555;
 }
 
-/* Team Section */
+/* Team grid */
 .team-grid {
   display: flex;
   flex-wrap: wrap;
@@ -137,8 +141,8 @@ body {
 }
 
 .team-member {
-  text-align: center;
   width: 140px;
+  text-align: center;
   cursor: default;
 }
 
@@ -147,8 +151,8 @@ body {
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  transition: filter 0.3s;
   filter: grayscale(100%);
+  transition: filter 0.3s ease;
 }
 
 .team-member:hover img {
@@ -185,7 +189,7 @@ body {
   background-color: #650101;
 }
 
-/* Floating Icons */
+/* Floating icons */
 .floating-icons {
   position: fixed;
   bottom: 24px;
@@ -214,7 +218,7 @@ body {
   background-color: #650101;
 }
 
-/* Schedule Appointment Page Styles */
+/* Schedule Appointment Page */
 .appointment-container {
   max-width: 500px;
   margin: 80px auto;
@@ -227,6 +231,7 @@ body {
 .appointment-container h2 {
   margin-bottom: 20px;
   color: #930203;
+  text-align: center;
 }
 
 form {
@@ -240,6 +245,7 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
+  resize: vertical;
 }
 
 button {
@@ -274,13 +280,20 @@ button:hover {
   display: none;
 }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Navigation hidden */
+  .nav-links {
+    display: none;
+  }
+
+  /* Projects grid single column */
   .projects-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     max-width: 90vw;
   }
 
+  /* Team stack vertically */
   .team-grid {
     flex-direction: column;
     align-items: center;
