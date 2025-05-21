@@ -218,7 +218,25 @@ body {
 .floating-icons a:hover {
   background-color: #650101;
 }
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 55px;
+  height: 55px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
 
+.whatsapp-icon {
+  width: 60%;    /* keeps aspect ratio */
+  height: auto;  /* automatically adjusts height */
+}
 /* Schedule Appointment Page */
 .appointment-container {
   max-width: 500px;
