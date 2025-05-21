@@ -164,27 +164,32 @@ footer {
 }
 
 /* Floating Icons */
+.floating-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+
 .floating-icons .icon {
   background-color: #930203;
   color: white;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 20px;
+  width: 44px;
+  height: 44px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
 }
 
-
-.floating-icons .icon {
-  background-color: #930203;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 12px;
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 14px;
-  text-align: center;
+.floating-icons .icon:hover {
+  background-color: #750202;
 }
 
 /* Responsive */
