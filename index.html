@@ -222,6 +222,20 @@
   <footer>
     <p>&copy; 2025 svagram. All rights reserved.</p>
   </footer>
+  
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+  // Initialize Masonry after the DOM is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    var grid = document.querySelector('.projects-grid');
+    var msnry = new Masonry(grid, {
+      itemSelector: '.project-item',
+      columnWidth: '.project-item',
+      percentPosition: true,
+      gutter: 20
+    });
+  });
+</script>
 
 </body>
 </html>
