@@ -83,12 +83,18 @@ body {
 
 /* Projects grid */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 2.5rem;
-  max-width: 1200px;   /* controls overall grid width */
+  /* remove grid display */
+  display: block;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem;
+}
+
+.project-item {
+  width: 30%; /* approx 3 columns */
+  margin-bottom: 20px;
+  float: left; /* required for masonry */
+  box-sizing: border-box;
 }
 
 .project-item img.project-image {
