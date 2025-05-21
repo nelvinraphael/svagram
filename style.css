@@ -164,15 +164,17 @@ footer {
 }
 
 /* Floating Icons */
-.floating-icons {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
+.floating-icons .icon {
+  background-color: #930203;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .floating-icons .icon {
   background-color: #930203;
