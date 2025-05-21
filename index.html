@@ -2,26 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Loading | Architecture Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 1; }
-    }
-
-    .dot {
-      animation: fadeInOut 1.4s infinite;
-    }
-    .dot:nth-child(2) { animation-delay: 0.2s; }
-    .dot:nth-child(3) { animation-delay: 0.4s; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>svagram | Architecture & Design</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white flex items-center justify-center h-screen">
-  <div class="text-center">
-    <div class="text-2xl font-semibold tracking-widest text-gray-800">Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-    <div class="mt-4 text-sm text-gray-500">Please wait while we prepare the experience.</div>
+<body>
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <a href="https://www.instagram.com/sva.gram" target="_blank" class="icon instagram">IG</a>
+    <a href="https://wa.me/919020515114" target="_blank" class="icon whatsapp">WA</a>
   </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="logo-placeholder.png" alt="svagram logo" class="logo" />
+    <h1 class="tagline">sva: self | gram: village</h1>
+    <p class="mission">Each person builds their abode with dreams... cultivating an ecosystem of balance and harmony.</p>
+  </header>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About svagram</h2>
+    <p>We believe homes are ecosystems crafted through a collaboration between the client’s aspirations and our expertise in architecture, interiors, landscape, and urban design.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project-categories">
+      <button>Residential</button>
+      <button>Commercial</button>
+      <button>Institutional</button>
+      <button>Urban Design</button>
+    </div>
+    <div class="project-grid">
+      <!-- Repeat this block for each project -->
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
+      <!-- ...more project-item -->
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Our Team</h2>
+    <div class="team-members">
+      <div class="member">
+        <img src="team-placeholder.jpg" alt="Team Member" class="team-img" />
+        <h3>Name</h3>
+        <p>Title</p>
+      </div>
+      <div class="team-members">
+      <div class="member">
+        <img src="team-placeholder.jpg" alt="Team Member" class="team-img" />
+        <h3>Name</h3>
+        <p>Title</p>
+      </div>
+      <!-- ...more members -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <!-- Form handling can be implemented with PHP/JS -->
+      <button type="submit">Schedule Appointment</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 svagram. All rights reserved.</p>
+  </footer>
 </body>
 </html>
