@@ -8,34 +8,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
   <!-- Floating Icons -->
-<div class="floating-icons">
-  <a href="https://www.instagram.com/sva.gram" target="_blank" class="icon instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://wa.me/919020515114" target="_blank" class="icon whatsapp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
+  <div class="floating-icons">
+    <a href="https://www.instagram.com/sva.gram" target="_blank" class="icon instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/919020515114" target="_blank" class="icon whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="schedule.html" class="icon schedule" title="Schedule Appointment">
+      <i class="fas fa-calendar-check"></i>
+    </a>
+  </div>
+
+  <!-- Navigation Header -->
+  <nav class="main-header">
+    <div class="logo-block">
+      <img src="logo-placeholder.png" alt="svagram logo" class="logo" />
+      <span class="company-name">svagram</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
   <header class="hero">
-    <img src="logo-placeholder.png" alt="svagram logo" class="logo" />
     <h1 class="tagline">sva: self | gram: village</h1>
     <p class="mission">Each person builds their abode with dreams... cultivating an ecosystem of balance and harmony.</p>
   </header>
 
   <!-- About Section -->
-  <section class="about">
+  <section class="about" id="about">
     <h2>About svagram</h2>
     <p>We believe homes are ecosystems crafted through a collaboration between the client’s aspirations and our expertise in architecture, interiors, landscape, and urban design.</p>
   </section>
 
   <!-- Projects Section -->
-  <section class="projects">
+  <section class="projects" id="projects">
     <h2>Projects</h2>
     <div class="project-categories">
       <button>Residential</button>
@@ -108,12 +124,19 @@
           <p>One-line project description.</p>
         </a>
       </div>
+      <div class="project-item">
+        <a href="project-detail.html">
+          <img src="placeholder.jpg" alt="Project image" />
+          <h3>Project Title</h3>
+          <p>One-line project description.</p>
+        </a>
+      </div>
       <!-- ...more project-item -->
     </div>
   </section>
 
   <!-- Team Section -->
-  <section class="team">
+  <section class="team" id="team">
     <h2>Our Team</h2>
     <div class="team-members">
       <div class="member">
@@ -121,7 +144,6 @@
         <h3>Name</h3>
         <p>Title</p>
       </div>
-      <div class="team-members">
       <div class="member">
         <img src="team-placeholder.jpg" alt="Team Member" class="team-img" />
         <h3>Name</h3>
@@ -132,16 +154,9 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="contact">
+  <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
-    <form action="#" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <!-- Form handling can be implemented with PHP/JS -->
-      <button type="submit">Schedule Appointment</button>
-    </form>
   </section>
 
   <footer>
