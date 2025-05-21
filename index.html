@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>svagram | Architecture & Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>svagram | Architecture Practice</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,156 +64,163 @@
   </style>
 </head>
 <body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo-link">
+      <img src="logo-placeholder.png" alt="svagram logo" />
+      <span>svagram</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="#about">About Us</a>
+      <a href="#projects">Projects</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main-container">
+
+    <!-- About Us Section -->
+    <section id="about">
+      <h1>About svagram</h1>
+      <p>
+        <strong>sva:</strong> (Sanskrit: self/own)<br />
+        <strong>gram:</strong> (Sanskrit: village)<br />
+        <br />
+        Each person builds their abode with dreams reflecting unique identity, purpose, design, space, and patterns. These homes cultivate an entire ecosystem, welcoming diverse flora and fauna. We believe homes emerge through collaboration between clients' aspirations and our expertise.
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder1.jpg" alt="Project 1" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Residential Project</h3>
+            <p class="project-desc">A modern home that balances form and nature.</p>
+          </div>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder2.jpg" alt="Project 2" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Commercial Complex</h3>
+            <p class="project-desc">Functional design with urban aesthetics.</p>
+          </div>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder3.jpg" alt="Project 3" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Urban Design Plan</h3>
+            <p class="project-desc">Creating sustainable community spaces.</p>
+          </div>
+        </article>
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder1.jpg" alt="Project 1" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Residential Project</h3>
+            <p class="project-desc">A modern home that balances form and nature.</p>
+          </div>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder2.jpg" alt="Project 2" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Commercial Complex</h3>
+            <p class="project-desc">Functional design with urban aesthetics.</p>
+          </div>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder3.jpg" alt="Project 3" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Urban Design Plan</h3>
+            <p class="project-desc">Creating sustainable community spaces.</p>
+          </div>
+        </article>
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder1.jpg" alt="Project 1" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Residential Project</h3>
+            <p class="project-desc">A modern home that balances form and nature.</p>
+          </div>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder2.jpg" alt="Project 2" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Commercial Complex</h3>
+            <p class="project-desc">Functional design with urban aesthetics.</p>
+          </div>
+        </article>
+
+        <article class="project-item" tabindex="0">
+          <img src="project-placeholder3.jpg" alt="Project 3" class="project-image" />
+          <div class="project-info">
+            <h3 class="project-title">Urban Design Plan</h3>
+            <p class="project-desc">Creating sustainable community spaces.</p>
+          </div>
+        </article>
+        <!-- Add more projects as needed -->
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member" tabindex="0">
+          <img src="team-placeholder1.jpg" alt="Team Member 1" />
+          <p class="team-member-title">Ar. Nelvin Raphael</p>
+        </div>
+
+        <div class="team-member" tabindex="0">
+          <img src="team-placeholder2.jpg" alt="Team Member 2" />
+          <p class="team-member-title">Ar. Hyda Davis  </p>
+        </div>
+
+              </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>Get in Touch</h2>
+      <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
+      <a href="schedule.html" class="contact-button" aria-label="Schedule an appointment">Schedule an Appointment</a>
+    </section>
+
+  </main>
+
   <!-- Floating Icons -->
-  <div class="floating-icons">
-  <a href="https://www.instagram.com/sva.gram" target="_blank" class="icon instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://wa.me/919020515114" target="_blank" class="icon whatsapp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <div class="floating-icons" aria-label="Social Media and Contact Links">
+    <a href="https://www.instagram.com/sva.gram?igsh=OTR0NnE1ZHkzZzRt" target="_blank" rel="noopener" aria-label="Instagram">
+      <!-- Instagram SVG Icon -->
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm0 2C5.678 4 4 5.678 4 7.75v8.5C4 18.322 5.678 20 7.75 20h8.5c2.072 0 3.75-1.678 3.75-3.75v-8.5C20 5.678 18.322 4 16.25 4h-8.5zm8.5 2.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
+      </svg>
+    </a>
+
+    <a href="https://wa.me/919020515114" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <!-- WhatsApp SVG Icon -->
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.48A11.917 11.917 0 0012 0C5.372 0 0 5.372 0 12c0 2.11.553 4.122 1.603 5.924L0 24l6.344-1.62A11.91 11.91 0 0012 24c6.627 0 12-5.373 12-12 0-3.213-1.252-6.217-3.48-8.52zm-8.522 17.122c-1.924 0-3.693-.5-5.277-1.44l-.38-.22-3.77.962.998-3.674-.246-.39a8.022 8.022 0 01-1.228-4.254c0-4.435 3.608-8.042 8.042-8.042 2.145 0 4.162.837 5.674 2.35a7.977 7.977 0 012.347 5.691c0 4.435-3.608 8.042-8.042 8.042zm4.423-6.067c-.243-.12-1.438-.71-1.661-.79-.224-.083-.388-.12-.552.12-.163.243-.63.79-.774.952-.143.162-.287.18-.53.06-.244-.12-1.03-.38-1.962-1.208-.724-.645-1.213-1.44-1.356-1.682-.144-.243-.015-.374.105-.494.108-.107.243-.283.365-.425.122-.144.162-.243.243-.404.08-.16.04-.3-.02-.425-.06-.12-.552-1.33-.756-1.818-.198-.477-.4-.413-.552-.42-.143-.007-.3-.007-.46-.007-.16 0-.42.06-.64.3-.224.243-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.16 1.72 2.63 4.18 3.687.585.252 1.04.4 1.396.513.585.18 1.12.155 1.54.094.47-.07 1.438-.588 1.64-1.156.2-.57.2-1.058.143-1.156-.06-.1-.22-.162-.462-.283z"/>
+      </svg>
+    </a>
+    
   <a href="schedule.html" class="icon schedule" title="Schedule Appointment">
     <i class="fas fa-calendar-check"></i>
   </a>
-</div>
-
-  <!-- Navigation Header -->
-  <nav class="main-header">
-    <div class="logo-block">
-      <img src="logo.png" alt="svagram logo" class="logo" />
-      <span class="company-name">svagram</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1 class="tagline">sva: self | gram: village</h1>
-    <p class="mission">Each person builds their abode with dreams... cultivating an ecosystem of balance and harmony.</p>
-  </header>
-
-  <!-- About Section -->
-  <section class="about" id="about">
-    <h2>About svagram</h2>
-    <p>We believe homes are ecosystems crafted through a collaboration between the client’s aspirations and our expertise in architecture, interiors, landscape, and urban design.</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-categories">
-      <button>Residential</button>
-      <button>Commercial</button>
-      <button>Institutional</button>
-      <button>Urban Design</button>
-    </div>
-    <div class="project-grid">
-      <!-- Repeat this block for each project -->
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <div class="project-item">
-        <a href="project-detail.html">
-          <img src="placeholder.jpg" alt="Project image" />
-          <h3>Project Title</h3>
-          <p>One-line project description.</p>
-        </a>
-      </div>
-      <!-- ...more project-item -->
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="team" id="team">
-    <h2>Our Team</h2>
-    <div class="team-members">
-      <div class="member">
-        <img src="team-placeholder.jpg" alt="Team Member" class="team-img" />
-        <h3>Name</h3>
-        <p>Title</p>
-      </div>
-      <div class="member">
-        <img src="team-placeholder.jpg" alt="Team Member" class="team-img" />
-        <h3>Name</h3>
-        <p>Title</p>
-      </div>
-      <!-- ...more members -->
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
-  </section>
-
+  </div>
+  
   <footer>
     <p>&copy; 2025 svagram. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
