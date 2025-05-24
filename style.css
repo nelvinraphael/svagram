@@ -41,7 +41,7 @@
   --shadow-project-hover: 0 8px 20px rgba(147, 2, 3, 0.3);
 
   /* Max Widths */
-  --max-width-container: 1200px;
+  --max-width-container: 1600px;
   --max-width-nav: 600px; /* Kept for potential specific nav behavior */
 }
 
@@ -152,7 +152,7 @@ body {
 /* Consolidated project image styling */
 .project-item img.project-image {
   width: 100%;
-  height: 180px; /* Fixed height for consistency */
+  height: 300px; /* Fixed height for consistency */
   object-fit: cover; /* Changed from 'contain' to 'cover' for better visual fill */
   border-radius: 8px;
   display: block;
