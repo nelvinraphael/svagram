@@ -151,8 +151,8 @@ body {
 
 /* Consolidated project image styling */
 .project-item img.project-image {
-  width: 100%;
-  height: 300px; /* Fixed height for consistency */
+  width: 500px;
+  height: auto; /* Fixed height for consistency */
   object-fit: cover; /* Changed from 'contain' to 'cover' for better visual fill */
   border-radius: 8px;
   display: block;
