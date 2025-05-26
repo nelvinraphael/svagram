@@ -9,17 +9,37 @@
   <link rel="stylesheet" href="style.css" />
   </head>
 <body>
-  <header class="header">
-    <a href="/" class="logo-link" aria-label="svagram homepage">
-      <img src="logo.png" alt="svagram logo" width="auto" height="auto" /> <span>svagram</span>
-    </a>
-    <nav class="nav-links" aria-label="Main Navigation">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
+ <div id="splash">
+    <img src="assets/logo.png" alt="svagram logo" class="logo" />
+    <div class="splash-text">
+      <h1>svagram</h1>
+      <p>shaping cities together</p>
+    </div>
+  </div>
+
+  <header id="main-header">
+    <div class="logo-small"> <img src="assets/logo.png" alt="svagram logo" /> </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Studio</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </nav>
   </header>
+
+  <main class="split-layout">
+    <section class="left">
+      <h1 class="hero-text">svagram</h1>
+    </section>
+    <section class="right">
+      <img src="assets/hero.jpg" alt="Hero image" />
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 
   <main class="main-container">
 
