@@ -1,6 +1,25 @@
-const cursor = document.querySelector(".cursor");
+ <!-- JavaScript: script.js -->
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      const main = document.getElementById('main');
 
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
+      setTimeout(() => {
+        loader.style.display = 'none';
+        main.classList.remove('hidden');
+      }, 2000);
+    });
+
+    // Team member hover effect
+    document.querySelectorAll('.team-img').forEach(img => {
+      img.addEventListener('mouseenter', () => {
+        img.src = img.dataset.color;
+      });
+      img.addEventListener('mouseleave', () => {
+        const src = img.src.replace('-color', '-bw');
+        img.src = src;
+      });
+    });
+  </script>
+</body>
+</html>
