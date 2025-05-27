@@ -10,8 +10,8 @@ body {
   height: 20px;
   border-radius: 50%;
   position: absolute;
-  background: cyan;
-  box-shadow: 0 0 15px cyan, 0 0 40px cyan;
+  background: hotpink;
+  box-shadow: 0 0 15px hotpink, 0 0 40px hotpink;
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: transform 0.05s ease;
