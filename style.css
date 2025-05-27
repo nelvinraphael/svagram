@@ -1,221 +1,322 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Svagram</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-  <style>
-    /* CSS: styles.css */
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: white;
-      cursor: crosshair;
-    }
 
-    #loader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: white;
-    }
+/* --- CSS Variables (Custom Properties) --- */
+:root {
+  /* Colors */
+  --color-primary: #930203; /* Main brand color */
+  --color-secondary: #650101; /* Darker hover/active color */
+  --color-text-dark: black;
+  --color-text-medium: #333;
+  --color-text-light: #555;
+  --color-border-light: #ddd;
+  --color-background-white: white;
+  --color-header-bg: rgba(255, 255, 255, 0.8);
 
-    .logo-center {
-      text-align: center;
-    }
+  /* Spacing */
+  --spacing-xs: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 40px;
+  --spacing-xxxl: 60px; /* For section margins */
 
-    .hidden {
-      display: none;
-    }
+  /* Font Sizes */
+  --font-size-base: 1rem; /* 16px default */
+  --font-size-sm: 0.9rem;
+  --font-size-lg: 1.25rem; /* For logo text */
+  --font-size-xl: 28px; /* For whatsapp icon */
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      padding: 1rem;
-      z-index: 1000;
-    }
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 900;
 
-    .logo-small {
-      width: 50px;
-    }
+  /* Transitions */
+  --transition-speed-fast: 0.2s;
+  --transition-speed-normal: 0.3s;
 
-    .floating-icons {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      z-index: 1000;
-    }
+  /* Box Shadows */
+  --shadow-header: 0 2px 6px rgba(0,0,0,0.05);
+  --shadow-floating-icon: 0 4px 12px rgba(147, 2, 3, 0.5);
+  --shadow-project-hover: 0 8px 20px rgba(147, 2, 3, 0.3);
 
-    .floating-btn {
-      background: #b52003;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      text-align: center;
-    }
+  /* Max Widths */
+  --max-width-container: 1200px;
+  --max-width-nav: 600px; /* Kept for potential specific nav behavior */
+}
 
-    .hero {
-      display: flex;
-      height: 100vh;
-    }
+/* --- Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .hero-left, .hero-right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background-white);
+  color: var(--color-text-dark);
+  line-height: 1.5;
+}
 
-    .hero-right img {
-      max-width: 100%;
-      height: auto;
-    }
+/* --- Header --- */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(10px);
+  /* border-bottom: none; - Redundant if no default border */
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm); /* Using variable for consistency */
+  z-index: 1000;
+  box-shadow: var(--shadow-header);
+}
 
-    .about {
-      padding: 4rem;
-      background: white;
-      text-align: center;
-    }
+.header a.logo-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  color: var(--color-text-dark);
+}
 
-    .projects .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      padding: 4rem;
-    }
+.header a.logo-link img {
+  height: 40px; /* Ensure you have actual dimensions in HTML for CLS */
+  width: 40px;  /* Ensure you have actual dimensions in HTML for CLS */
+}
 
-    .project-item {
-      text-decoration: none;
-      color: black;
-    }
+.header a.logo-link span {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
 
-    .project-info {
-      text-align: center;
-      padding: 0.5rem;
-    }
+/* --- Navigation --- */
+.nav-links {
+  display: flex;
+  flex-grow: 1;
+  max-width: var(--max-width-nav); /* Kept for specific navigation width control */
+  justify-content: space-evenly;
+  margin-left: var(--spacing-xxl); /* 40px */
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+}
 
-    .team {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 4rem;
-      background: #f9f9f9;
-    }
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-dark);
+  transition: color var(--transition-speed-normal), font-weight var(--transition-speed-normal);
+}
 
-    .team-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      transition: filter 0.3s ease;
-    }
+.nav-links a:hover {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
 
-    .footer-content {
-      text-align: center;
-      padding: 2rem;
-      background: #222;
-      color: white;
-    }
+/* --- Main container --- */
+.main-container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: var(--spacing-xxl) var(--spacing-lg); /* 40px top/bottom, 20px left/right */
+}
 
-    .social-icons a {
-      color: white;
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-  <!-- Loading Animation -->
-  <div id="loader">
-    <div class="logo-center">
-      <img src="logo-placeholder.png" alt="Svagram Logo" class="logo" />
-      <h1 class="brand">Svagram</h1>
-      <p class="tagline">Designing Tomorrow</p>
-    </div>
-  </div>
+/* --- About Us Section --- */
+#about h1 {
+  /* No specific styles provided in original, but good practice to add if needed */
+  margin-bottom: var(--spacing-md);
+}
+#about p {
+  /* No specific styles provided in original, but good practice to add if needed */
+  line-height: 1.7; /* Slightly more space for readability */
+}
 
-  <!-- Main Wrapper -->
-  <div id="main" class="hidden">
-    <!-- Header -->
-    <header>
-      <div class="logo-container">
-        <img src="logo-placeholder.png" alt="Svagram Logo" class="logo-small" />
-      </div>
-    </header>
 
-    <!-- Floating Buttons -->
-    <div class="floating-icons">
-      <a href="#" class="floating-btn instagram">IG</a>
-      <a href="#" class="floating-btn whatsapp">WA</a>
-      <a href="#" class="floating-btn appointment">Schedule</a>
-    </div>
+/* --- Projects Grid --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem; /* Keeping as rem for consistency with font sizes */
+  max-width: var(--max-width-container); /* Redundant if .main-container has it, but safe */
+  margin: var(--spacing-xxl) auto; /* Add margin to separate from other sections */
+  padding: 1.5rem;
+}
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-left">
-        <h1 class="headline">Lorem Ipsum Dolor Sit</h1>
-        <p class="subheadline">Consectetur adipiscing elit sed do eiusmod</p>
-      </div>
-      <div class="hero-right">
-        <img src="hero-placeholder.jpg" alt="Hero Image" />
-      </div>
-    </section>
+.project-item {
+  /* REMOVED width: 30%; - Let grid handle item sizing */
+  /* Added a transition for hover effect */
+  transition: box-shadow var(--transition-speed-normal) ease;
+}
 
-    <!-- About Section -->
-    <section class="about">
-      <div class="about-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-      </div>
-    </section>
+/* Consolidated project image styling */
+.project-item img.project-image {
+  width: 100%;
+  height: 180px; /* Fixed height for consistency */
+  object-fit: cover; /* Changed from 'contain' to 'cover' for better visual fill */
+  border-radius: 8px;
+  display: block;
+  border-bottom: 1px solid var(--color-border-light); /* Moved from general .project-image */
+}
 
-    <!-- Projects Section -->
-    <section class="projects">
-      <div class="grid">
-        <a href="project.html" class="project-item">
-          <img src="project-placeholder.jpg" alt="Project" />
-          <div class="project-info">
-            <h3>Project Name</h3>
-            <p>One-line description</p>
-          </div>
-        </a>
-      </div>
-    </section>
+.project-item:hover {
+  box-shadow: var(--shadow-project-hover);
+}
 
-    <!-- Team Section -->
-    <section class="team">
-      <div class="team-member">
-        <img src="member-bw.jpg" alt="Member" class="team-img bw" data-color="member-color.jpg" />
-        <h4>Member Name</h4>
-        <p>Position</p>
-      </div>
-      <div class="team-member">
-        <img src="member2-bw.jpg" alt="Member" class="team-img bw" data-color="member2-color.jpg" />
-        <h4>Member Name</h4>
-        <p>Position</p>
-      </div>
-    </section>
+.project-info {
+  padding: var(--spacing-sm); /* Using variable for consistency */
+}
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 Svagram. All rights reserved.</p>
-        <p>Email: <a href="mailto:info@svagram.com">info@svagram.com</a></p>
-        <p>Phone: +123 456 7890</p>
-        <div class="social-icons">
-          <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
-        </div>
-      </div>
-    </footer>
-  </div>
+.project-title {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs); /* Using variable for consistency */
+  transition: color var(--transition-speed-normal), font-weight var(--transition-speed-normal);
+}
 
- 
+.project-title:hover {
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-extra-bold); /* Stronger hover effect */
+}
+
+.project-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+/* --- Team Grid --- */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-xl); /* 24px */
+  margin: var(--spacing-xxl) 0; /* 40px top/bottom */
+}
+
+.team-member {
+  width: 140px;
+  text-align: center;
+  cursor: default;
+}
+
+.team-member img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter var(--transition-speed-normal) ease;
+  display: block; /* Ensure no extra space below image */
+  margin: 0 auto; /* Center image if member width allows */
+}
+
+.team-member:hover img {
+  filter: none;
+}
+
+.team-member-title {
+  margin-top: var(--spacing-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-medium);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+  text-align: center;
+  margin: var(--spacing-xxxl) 0; /* 60px top/bottom */
+}
+
+.contact-button {
+  background-color: var(--color-primary);
+  color: var(--color-background-white);
+  padding: 14px 28px; /* Specific values for button size */
+  border: none;
+  border-radius: 12px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color var(--transition-speed-normal);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.contact-button:hover {
+  background-color: var(--color-secondary);
+}
+
+/* --- Floating Icons --- */
+.floating-icons {
+  position: fixed;
+  bottom: var(--spacing-xl); /* 24px */
+  right: var(--spacing-xl); /* 24px */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md); /* 16px */
+  z-index: 10000;
+}
+
+.floating-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  color: var(--color-background-white);
+  text-decoration: none;
+  box-shadow: var(--shadow-floating-icon);
+  transition: background-color var(--transition-speed-normal);
+}
+
+.floating-icons a:hover {
+  background-color: var(--color-secondary);
+}
+
+.whatsapp-icon {
+  font-size: var(--font-size-xl); /* 28px */
+  color: var(--color-background-white); /* Explicitly set, though parent takes care */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  /* Navigation hidden - as per original */
+  .nav-links {
+    display: none;
+  }
+
+  /* Projects grid single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 90vw; /* Using viewport width for padding */
+    padding: var(--spacing-lg); /* Adjusted padding for mobile */
+    gap: var(--spacing-xxl); /* Increase gap for single column layout */
+  }
+
+  .project-item {
+    width: 100%; /* Ensure it takes full width on single column */
+  }
+
+  /* Header adjustments for smaller screens */
+  .header {
+    padding: var(--spacing-md) var(--spacing-md); /* Smaller horizontal padding */
+    gap: var(--spacing-md);
+  }
+
+  /* Team stack vertically */
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xxl); /* Increased gap when stacked */
+  }
+
+  .main-container {
+    padding: var(--spacing-xl) var(--spacing-md); /* Smaller padding on mobile */
+  }
+
+  .floating-icons {
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+}
