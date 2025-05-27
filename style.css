@@ -1,18 +1,221 @@
-body {
-  margin: 0;
-  height: 100vh;
-  background: #000;
-  cursor: none; /* hide default cursor */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Svagram</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <style>
+    /* CSS: styles.css */
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: white;
+      cursor: crosshair;
+    }
 
-.cursor {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  position: absolute;
-  background: hotpink;
-  box-shadow: 0 0 15px hotpink, 0 0 40px hotpink;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.05s ease;
-}
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: white;
+    }
+
+    .logo-center {
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .logo-small {
+      width: 50px;
+    }
+
+    .floating-icons {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      z-index: 1000;
+    }
+
+    .floating-btn {
+      background: #b52003;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .hero {
+      display: flex;
+      height: 100vh;
+    }
+
+    .hero-left, .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .hero-right img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .about {
+      padding: 4rem;
+      background: white;
+      text-align: center;
+    }
+
+    .projects .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 4rem;
+    }
+
+    .project-item {
+      text-decoration: none;
+      color: black;
+    }
+
+    .project-info {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .team {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem;
+      background: #f9f9f9;
+    }
+
+    .team-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .footer-content {
+      text-align: center;
+      padding: 2rem;
+      background: #222;
+      color: white;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Animation -->
+  <div id="loader">
+    <div class="logo-center">
+      <img src="logo-placeholder.png" alt="Svagram Logo" class="logo" />
+      <h1 class="brand">Svagram</h1>
+      <p class="tagline">Designing Tomorrow</p>
+    </div>
+  </div>
+
+  <!-- Main Wrapper -->
+  <div id="main" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="logo-container">
+        <img src="logo-placeholder.png" alt="Svagram Logo" class="logo-small" />
+      </div>
+    </header>
+
+    <!-- Floating Buttons -->
+    <div class="floating-icons">
+      <a href="#" class="floating-btn instagram">IG</a>
+      <a href="#" class="floating-btn whatsapp">WA</a>
+      <a href="#" class="floating-btn appointment">Schedule</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="headline">Lorem Ipsum Dolor Sit</h1>
+        <p class="subheadline">Consectetur adipiscing elit sed do eiusmod</p>
+      </div>
+      <div class="hero-right">
+        <img src="hero-placeholder.jpg" alt="Hero Image" />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+      <div class="grid">
+        <a href="project.html" class="project-item">
+          <img src="project-placeholder.jpg" alt="Project" />
+          <div class="project-info">
+            <h3>Project Name</h3>
+            <p>One-line description</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+      <div class="team-member">
+        <img src="member-bw.jpg" alt="Member" class="team-img bw" data-color="member-color.jpg" />
+        <h4>Member Name</h4>
+        <p>Position</p>
+      </div>
+      <div class="team-member">
+        <img src="member2-bw.jpg" alt="Member" class="team-img bw" data-color="member2-color.jpg" />
+        <h4>Member Name</h4>
+        <p>Position</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 Svagram. All rights reserved.</p>
+        <p>Email: <a href="mailto:info@svagram.com">info@svagram.com</a></p>
+        <p>Phone: +123 456 7890</p>
+        <div class="social-icons">
+          <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+ 
