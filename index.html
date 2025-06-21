@@ -1,55 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    .neon-text {
-      color: #0ff;
-      font-size: 4rem;
-      text-shadow:
-        0 0 5px #0ff,
-        0 0 10px #0ff,
-        0 0 20px #0ff,
-        0 0 40px #0ff,
-        0 0 80px #0ff;
-      animation: flicker 2s infinite alternate;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 1; }
-      50% { opacity: 0.85; text-shadow: 0 0 10px #0ff, 0 0 30px #0ff; }
-      100% { opacity: 1; }
-    }
-
-    .subtext {
-      color: #888;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
-  </style>
+  <title>Svagram</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body>
-  <div class="container">
-    <div class="neon-text">Coming Soon</div>
-    <div class="subtext">Stay tuned for something amazing.</div>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-content">
+      <img src="logo-placeholder.png" alt="Svagram Logo" class="loader-logo" />
+      <h1 class="loader-brand">Svagram</h1>
+      <p class="loader-tagline">Designing for Living</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main" class="hidden">
+    <!-- Header -->
+    <header>
+      <div class="header-logo">
+        <img src="logo-placeholder.png" alt="Svagram Logo" />
+      </div>
+    </header>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+      <a href="#" class="fab instagram">IG</a>
+      <a href="#" class="fab whatsapp">WA</a>
+      <a href="#contact" class="fab schedule">📅</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Lorem Ipsum Dolor Sit</h1>
+        <p>Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+      </div>
+      <div class="hero-right">
+        <img src="hero-placeholder.jpg" alt="Hero Image" />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+      <div class="grid">
+        <!-- Project items will be repeated -->
+        <a href="project.html" class="project-item">
+          <img src="project1.jpg" alt="Project 1" />
+          <div class="project-caption">
+            <h3>Project Name</h3>
+            <p>Short description goes here.</p>
+          </div>
+        </a>
+        <!-- Repeat 9 times with placeholder -->
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+      <div class="team-member">
+        <img src="member1-bw.jpg" data-color="member1-color.jpg" alt="Team Member" class="team-img" />
+        <h4>Jane Doe</h4>
+        <p>Principal Architect</p>
+      </div>
+      <div class="team-member">
+        <img src="member2-bw.jpg" data-color="member2-color.jpg" alt="Team Member" class="team-img" />
+        <h4>John Smith</h4>
+        <p>Landscape Designer</p>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 Svagram. All rights reserved.</p>
+        <p>Email: <a href="mailto:info@svagram.com">info@svagram.com</a></p>
+        <p>Phone: +91-9876543210</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </body>
+
 </html>
