@@ -1,20 +1,25 @@
-window.onload = () => {
-  const redScreen = document.getElementById('redScreen');
-  const logoContainer = document.getElementById('logoContainer');
-  const fullLogo = document.getElementById('fullLogo');
+// Wait for the window to load before removing the loader
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const main = document.getElementById("main");
 
-  // Step 1: Zoom out red screen to become first dot
   setTimeout(() => {
-    redScreen.style.transform = 'translate(-50%, -50%) scale(0.05)';
-  }, 500);
+    loader.style.display = "none";
+    main.classList.remove("hidden");
+  }, 1500); // Duration of loading screen
+});
 
-  // Step 2: Pop in second red dot (simulated by showing the logo with filter off)
-  setTimeout(() => {
-    logoContainer.style.opacity = '1';
-  }, 2000);
+// Handle hover image swap for team members
+const teamImages = document.querySelectorAll(".team-img");
+teamImages.forEach((img) => {
+  const original = img.src;
+  const color = img.getAttribute("data-color");
 
-  // Step 3: Reveal full logo clearly (removes brightness/contrast)
-  setTimeout(() => {
-    fullLogo.style.filter = 'brightness(1) contrast(1)';
-  }, 2500);
-};
+  img.addEventListener("mouseenter", () => {
+    img.src = color;
+  });
+
+  img.addEventListener("mouseleave", () => {
+    img.src = original;
+  });
+});
