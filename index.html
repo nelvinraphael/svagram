@@ -2,53 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>loading Page</title>
+  <title>Pixel Loading Page</title>
   <style>
     html, body {
       margin: 0;
+      padding: 0;
       height: 100%;
-      background: #111;
+      width: 100%;
+      background: white;
       overflow: hidden;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
     }
     #pixel-canvas {
+      flex: 1 1 90vh;
+      width: 100vw;
+      height: 90vh;
       display: block;
-      margin: 0 auto;
-      background: #111;
+      image-rendering: pixelated;
+      background: white;
     }
-    .centered-heading {
-      position: absolute;
-      top: 20px;
-      width: 100%;
+    #loading-text {
+      height: 10vh;
+      width: 100vw;
+      background: grey;
+      color: white;
+      font-family: serif;
+      font-size: 8vh;
+      line-height: 10vh;
       text-align: center;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      margin: 0;
+      user-select: none;
+      letter-spacing: 0.1em;
+      font-weight: normal;
+      box-sizing: border-box;
+    }
+    @media (max-width: 500px) {
+      #loading-text { font-size: 5vh; }
     }
   </style>
 </head>
 <body>
-  <h1 class="centered-heading">Pixel Animation Demo (20,736 Pixels)</h1>
-  <canvas id="pixel-canvas" width="144" height="144" style="image-rendering:pixelated; width:720px; height:720px;"></canvas>
+  <canvas id="pixel-canvas" width="144" height="144"></canvas>
+  <div id="loading-text">Loading</div>
   <script>
-    const w = 144, h = 144;
+    // Make the canvas always fill 90% of the viewport height
+    function resizeCanvas() {
+      const ch = Math.floor(window.innerHeight * 0.9);
+      const cw = window.innerWidth;
+      // Keep aspect ratio square (use smallest edge)
+      const size = Math.min(cw, ch);
+      const canvas = document.getElementById('pixel-canvas');
+      canvas.style.width = size + 'px';
+      canvas.style.height = size + 'px';
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
     const canvas = document.getElementById('pixel-canvas');
     const ctx = canvas.getContext('2d');
-    const pixelSize = 1; // pixel on canvas, style enlarges it
+    const w = canvas.width;
+    const h = canvas.height;
+
     const highlightColor = '#850101';
-    const bgColor = '#111';
+    const bgColor = '#ffffff';
+
+    // Fill canvas with white
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, w, h);
 
-    // Track active highlights
     let activePixels = {};
 
     function clearPixel(x, y) {
       ctx.fillStyle = bgColor;
-      ctx.fillRect(x, y, pixelSize, pixelSize);
+      ctx.fillRect(x, y, 1, 1);
       delete activePixels[`${x},${y}`];
     }
 
     function animatePixels() {
-      // Pick random number of pixels to highlight
       const changes = 100 + Math.floor(Math.random() * 101);
       for (let i = 0; i < changes; i++) {
         const x = Math.floor(Math.random() * w);
@@ -56,9 +92,9 @@
         const key = `${x},${y}`;
         if (!activePixels[key]) {
           ctx.fillStyle = highlightColor;
-          ctx.fillRect(x, y, pixelSize, pixelSize);
+          ctx.fillRect(x, y, 1, 1);
           activePixels[key] = true;
-          setTimeout(() => clearPixel(x, y), 500); // clear after 500ms
+          setTimeout(() => clearPixel(x, y), 500);
         }
       }
     }
