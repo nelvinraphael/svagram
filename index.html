@@ -1,155 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Svagram</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>SVAGRAM ARCHITECTURE</title>
+  <meta name="description" content="Minimal, modern Indian architecture and design studio.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <!-- Loading Screen -->
-  <div id="loader">
-    <div class="loader-content">
-      <img src="logo.png" alt="Svagram Logo" class="loader-logo" />
-      <h1 class="loader-brand">Svagram</h1>
-      <p class="loader-tagline">Designing for Living</p>
+  <!-- ONLOAD LOGO OVERLAY -->
+  <div id="onload-overlay">
+    <div class="logo-wrap">
+      <img src="assets/images/logo.png" alt="SVAGRAM Logo" />
+      <h1>SVAGRAM</h1>
+      <p>Minimal architecture for modern life.</p>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <div id="main" class="hidden">
-    <!-- Header -->
-    <header>
-      <div class="header-logo">
-        <img src="logo.png" alt="Svagram Logo" />
-      </div>
-    </header>
+  <!-- FLOATING SOCIAL/ACTION BUTTONS -->
+  <div class="floating-icons">
+    <a href="https://instagram.com/yourstudio" target="_blank" class="icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/919876543210" target="_blank" class="icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="icon" aria-label="Schedule Appointment" id="scheduleBtn"><i class="fa-regular fa-calendar"></i></a>
+  </div>
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-buttons">
-      <a href="#" class="fab instagram">IG</a>
-      <a href="#" class="fab whatsapp">WA</a>
-      <a href="#contact" class="fab schedule">📅</a>
+  <!-- MAIN NAVIGATION -->
+  <header>
+    <div class="brand"><img src="assets/images/logo.png" alt="SVAGRAM Logo"> SVAGRAM</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Studio</a>
+      <a href="#">Projects</a>
+      <a href="#">Team</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO SPLIT SECTION -->
+  <section class="hero">
+    <div class="split left">
+      <h2>Modern Spaces. Simplified Living.</h2>
+      <p>Elevating daily life through architecture, minimalism, and craft.<br>— Residential, Interiors, Landscape, Urban Design —</p>
     </div>
+    <div class="split right">
+      <img src="assets/images/hero.jpg" alt="Minimal architecture hero image">
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-left">
-        <h1>Lorem Ipsum Dolor Sit</h1>
-        <p>Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
-      </div>
-      <div class="hero-right">
-        <img src="hero-placeholder.jpg" alt="Hero Image" />
-      </div>
-    </section>
+  <!-- ABOUT INTRO PREVIEW -->
+  <section class="about-intro">
+    <h3>Who we are</h3>
+    <p>
+      We believe great spaces uplift lives. SVAGRAM practices architecture with clarity, restraint, and vision. 
+      Each home, space, and detail is crafted for minimal beauty and joyful utility.
+    </p>
+  </section>
 
-    <!-- About Section -->
-    <section class="about">
-      <div class="about-text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-      </div>
-    </section>
+  <!-- PROJECTS PREVIEW GRID -->
+  <section class="projects-preview">
+    <h3>Featured Projects</h3>
+    <div class="grid">
+      <a href="#" class="grid-item">
+        <img src="assets/images/proj1.jpg" alt="Courtyard House">
+        <h4>Courtyard House</h4>
+        <p>Secluded oasis with open skies</p>
+      </a>
+      <a href="#" class="grid-item">
+        <img src="assets/images/proj2.jpg" alt="Zen Studio">
+        <h4>Zen Studio</h4>
+        <p>Calm. Light. Flow.</p>
+      </a>
+      <a href="#" class="grid-item">
+        <img src="assets/images/proj3.jpg" alt="Garden Pavilion">
+        <h4>Garden Pavilion</h4>
+        <p>Indoor-outdoor green living</p>
+      </a>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section class="projects">
-      <div class="grid">
-        <!-- Project items will be repeated -->
-        <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-         <a href="project.html" class="project-item">
-          <img src="project1.jpg" alt="Project 1" />
-          <div class="project-caption">
-            <h3>Project Name</h3>
-            <p>Short description goes here.</p>
-          </div>
-        </a>
-        <!-- Repeat 9 times with placeholder -->
-      </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team">
+  <!-- TEAM PREVIEW -->
+  <section class="team-preview">
+    <h3>Our Team</h3>
+    <div class="team-grid">
       <div class="team-member">
-        <img src="nelvin.webp" data-color="nelvin.webp" alt="Team Member" class="team-img" />
-        <h4>Nelvin Raphael</h4>
-        <p>Principal Architect</p>
-      </div>
-      <div class="team-member">
-        <img src="member2-bw.jpg" data-color="member2-color.jpg" alt="Team Member" class="team-img" />
-        <h4>John Smith</h4>
-        <p>Landscape Designer</p>
-      </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 Svagram. All rights reserved.</p>
-        <p>Email: <a href="mailto:projects@svagram.com">projects@svagram.com</a></p>
-        <p>Phone: +91-9020515114</p>
-        <div class="footer-social">
-          <a href="#">Instagram</a> | <a href="#">WhatsApp</a>
+        <img src="assets/images/team1.jpg" class="team-photo" alt="A. Architect - Principal Architect">
+        <div class="member-info">
+          <span>A. Architect</span><br>
+          <span>Principal Architect</span>
         </div>
       </div>
-    </footer>
-  </div>
-</body>
+      <div class="team-member">
+        <img src="assets/images/team2.jpg" class="team-photo" alt="D. Designer - Design Director">
+        <div class="member-info">
+          <span>D. Designer</span><br>
+          <span>Design Director</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:hello@svagram.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+911234567890" title="Phone"><i class="fa-solid fa-phone"></i></a>
+      <a href="https://instagram.com/yourstudio" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/919876543210" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div>&copy; 2024 SVAGRAM ARCHITECTURE</div>
+  </footer>
+
+  <script src="assets/js/scripts.js"></script>
+</body>
 </html>
