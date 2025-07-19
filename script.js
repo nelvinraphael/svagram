@@ -1,25 +1,17 @@
-// Wait for the window to load before removing the loader
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const main = document.getElementById("main");
+// Fade-out overlay after 1.8 seconds
+window.addEventListener('DOMContentLoaded', function(){
+  setTimeout(function(){
+    document.getElementById('onload-overlay').classList.add('hide');
+  }, 1800);
 
-  setTimeout(() => {
-    loader.style.display = "none";
-    main.classList.remove("hidden");
-  }, 1500); // Duration of loading screen
+  // Schedule Appointment (dummy modal)
+  var btn = document.getElementById('scheduleBtn');
+  if(btn) {
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      alert("This would open a Schedule Appointment modal (add a real form here)!");
+    });
+  }
 });
 
-// Handle hover image swap for team members
-const teamImages = document.querySelectorAll(".team-img");
-teamImages.forEach((img) => {
-  const original = img.src;
-  const color = img.getAttribute("data-color");
-
-  img.addEventListener("mouseenter", () => {
-    img.src = color;
-  });
-
-  img.addEventListener("mouseleave", () => {
-    img.src = original;
-  });
-});
+// OPTIONAL: Add more JS features if needed
