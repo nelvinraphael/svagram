@@ -2,46 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Loading Page</title>
+  <title>Pixel Landing Page</title>
   <style>
     html, body {
+      margin: 0;
       height: 100%;
-      margin: 0;
-      padding: 0;
+      background: #111;
+      overflow: hidden;
     }
-    body {
-      height: 100vh;
-      width: 100vw;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #850101;
+    #pixel-canvas {
+      display: block;
+      margin: 0 auto;
+      /* Prevent selection */
+      user-select: none;
     }
-    .loader {
-      border: 16px solid #FFFFFF; /* Light grey */
-      border-top: 16px solid #850101; /* Blue */
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      animation: spin 2s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
-    .loading-text {
+    .centered-heading {
+      position: absolute;
+      top: 20px;
+      width: 100%;
       text-align: center;
-      margin-top: 24px;
-      color: #555;
+      color: #fff;
       font-family: Arial, sans-serif;
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <div class="loader"></div>
-    <div class="loading-text">Loading...</div>
-  </div>
+  <h1 class="centered-heading">Welcome to the Pixel Landing Page!</h1>
+  <canvas id="pixel-canvas" width="1920" height="1080"></canvas>
+  <script>
+    const w = 1920, h = 1080;
+    const canvas = document.getElementById('pixel-canvas');
+    const ctx = canvas.getContext('2d');
+    // Fill canvas with black pixels initially
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, w, h);
+
+    function randomColor() {
+      // Random bright color, not too dark
+      return (
+        'rgb(' +
+        (100 + Math.random() * 156 | 0) + ',' +
+        (100 + Math.random() * 156 | 0) + ',' +
+        (100 + Math.random() * 156 | 0) + ')'
+      );
+    }
+
+    function changePixels() {
+      const numPixels = 100 + Math.floor(Math.random() * 101); // 100-200
+      for (let i = 0; i < numPixels; i++) {
+        const x = Math.floor(Math.random() * w);
+        const y = Math.floor(Math.random() * h);
+        ctx.fillStyle = randomColor();
+        ctx.fillRect(x, y, 1, 1);
+      }
+    }
+
+    setInterval(changePixels, 500);
+  </script>
 </body>
 </html>
