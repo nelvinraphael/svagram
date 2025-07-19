@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pixel Landing Page</title>
+  <title>loading Page</title>
   <style>
     html, body {
       margin: 0;
@@ -13,8 +13,7 @@
     #pixel-canvas {
       display: block;
       margin: 0 auto;
-      /* Prevent selection */
-      user-select: none;
+      background: #111;
     }
     .centered-heading {
       position: absolute;
@@ -23,42 +22,48 @@
       text-align: center;
       color: #fff;
       font-family: Arial, sans-serif;
-      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
-  <h1 class="centered-heading">Welcome to the Pixel Landing Page!</h1>
-  <canvas id="pixel-canvas" width="1920" height="1080"></canvas>
+  <h1 class="centered-heading">Pixel Animation Demo (20,736 Pixels)</h1>
+  <canvas id="pixel-canvas" width="144" height="144" style="image-rendering:pixelated; width:720px; height:720px;"></canvas>
   <script>
-    const w = 1920, h = 1080;
+    const w = 144, h = 144;
     const canvas = document.getElementById('pixel-canvas');
     const ctx = canvas.getContext('2d');
-    // Fill canvas with black pixels initially
-    ctx.fillStyle = "#111";
+    const pixelSize = 1; // pixel on canvas, style enlarges it
+    const highlightColor = '#850101';
+    const bgColor = '#111';
+    ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, w, h);
 
-    function randomColor() {
-      // Random bright color, not too dark
-      return (
-        'rgb(' +
-        (100 + Math.random() * 156 | 0) + ',' +
-        (100 + Math.random() * 156 | 0) + ',' +
-        (100 + Math.random() * 156 | 0) + ')'
-      );
+    // Track active highlights
+    let activePixels = {};
+
+    function clearPixel(x, y) {
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(x, y, pixelSize, pixelSize);
+      delete activePixels[`${x},${y}`];
     }
 
-    function changePixels() {
-      const numPixels = 100 + Math.floor(Math.random() * 101); // 100-200
-      for (let i = 0; i < numPixels; i++) {
+    function animatePixels() {
+      // Pick random number of pixels to highlight
+      const changes = 100 + Math.floor(Math.random() * 101);
+      for (let i = 0; i < changes; i++) {
         const x = Math.floor(Math.random() * w);
         const y = Math.floor(Math.random() * h);
-        ctx.fillStyle = randomColor();
-        ctx.fillRect(x, y, 1, 1);
+        const key = `${x},${y}`;
+        if (!activePixels[key]) {
+          ctx.fillStyle = highlightColor;
+          ctx.fillRect(x, y, pixelSize, pixelSize);
+          activePixels[key] = true;
+          setTimeout(() => clearPixel(x, y), 500); // clear after 500ms
+        }
       }
     }
 
-    setInterval(changePixels, 500);
+    setInterval(animatePixels, 500);
   </script>
 </body>
 </html>
