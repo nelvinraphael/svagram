@@ -4,26 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Svagram Architectural Practice</title>
+  <!-- Google Fonts: Roboto with weights 300,400,500,700 -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; }
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 400;
       margin: 0;
       padding: 0;
-      background: #f6f7fb;
+      background-image: url('https://img.freepik.com/free-vector/dotted-grid-paper-texture-background_1017-27117.jpg');
+      background-repeat: repeat;
+      background-color: #f6f7fb;
       color: #222;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    a { color: inherit; text-decoration: none; }
-    ul { margin: 0; padding: 0; list-style: none; }
-    img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+    button, .cta-btn {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 700; /* Bold for buttons */
+      letter-spacing: 0.05em;
+    }
 
     /* Header */
     .site-header {
-      background: #fff;
-      border-bottom: 1px solid #ccc;
-      position: sticky; top: 0; width: 100%; z-index: 100;
+      background: transparent;
+      border-bottom: none;
+      position: sticky; 
+      top: 0; 
+      width: 100%; 
+      z-index: 100;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
     }
     .container {
       max-width: 960px;
@@ -35,145 +67,449 @@
       height: 60px;
     }
     .logo a {
-      font-size: 1.5rem; font-weight: bold; color: #b52003; letter-spacing: 0.05em;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #b52003;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
     }
     .main-nav ul {
-      display: flex; gap: 2rem; align-items: center;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
     }
     .main-nav a {
-      color: #222; font-size: 1rem; font-weight: 600; transition: color 0.3s ease;
+      color: #222;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
     .main-nav a:hover,
     .main-nav a:focus {
-      color: #b52003; outline: none;
+      color: #960000;
+      outline: none;
     }
     .menu-toggle {
       font-size: 1.8rem;
-      background: none; border: none; cursor: pointer; display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
       color: #b52003;
     }
     @media (max-width: 768px) {
       .main-nav {
-        position: fixed; top: 60px; right: 0; background: #fff;
-        width: 70%; max-width: 250px; height: calc(100% - 60px);
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: rgba(255 255 255 / 0.95);
+        width: 70%;
+        max-width: 250px;
+        height: calc(100% - 60px);
         box-shadow: -4px 0 12px rgba(0,0,0,0.1);
-        transform: translateX(100%); transition: transform 0.3s ease;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
       }
-      .main-nav.open { transform: translateX(0); }
-      .main-nav ul { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
-      .menu-toggle { display: block; }
+      .main-nav.open {
+        transform: translateX(0);
+      }
+      .main-nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
 
     /* Hero Section */
     .hero-section {
-      width: 100%; background: #fff; border-radius: 9px; box-shadow: 0 4px 24px rgba(0,0,0,.07);
-      display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-bottom: 2.5rem; overflow: hidden;
+      width: 100%;
+      background: transparent;
+      border-radius: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
     }
-    .hero-img-wrap { flex: 2; min-width: 320px; max-height: 500px; overflow: hidden; }
-    .hero-img { width: 100%; height: 360px; max-width: 100%; object-fit: cover; display: block; }
+    .hero-img-wrap {
+      flex: 2;
+      min-width: 320px;
+      max-height: 500px;
+      overflow: hidden;
+      border-radius: 9px 0 0 9px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    }
+    .hero-img {
+      width: 100%;
+      height: 360px;
+      max-width: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 9px 0 0 9px;
+      transition: transform 0.3s ease;
+    }
+    .hero-img-wrap:hover .hero-img,
+    .hero-img-wrap:focus-within .hero-img {
+      transform: scale(1.05);
+    }
     .hero-content {
-      flex: 1; min-width: 270px;
+      flex: 1;
+      min-width: 270px;
       padding: 2.5rem 2rem 2.5rem 2.2rem;
-      display: flex; flex-direction: column; justify-content: center; background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(255 255 255 / 0.9);
+      border-radius: 0 9px 9px 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
     }
-    .hero-content h1 { color: #000; font-size: 2.4rem; margin: 0 0 0.7rem 0; font-weight: 700; letter-spacing: 0.03em; }
-    .hero-content p { color: #444; font-size: 1.19rem; margin: 0 0 1.4rem 0; line-height: 1.5; }
-    .cta-btn.hero-cta { align-self: flex-start; margin-top: 0.2rem; margin-bottom: 0.2rem; padding: 15px 27px; font-size: 1.05rem; }
-
-    @media (max-width: 900px) {
-      .hero-section { flex-direction: column; border-radius: 0; box-shadow: 0 2px 12px rgba(0,0,0,.07); padding-bottom: 0; }
-      .hero-img-wrap, .hero-img { width: 100%; height: 220px; max-height: 220px; border-radius: 0; }
-      .hero-content { padding: 1.6rem 1rem 1.1rem 1rem; min-width: unset; }
+    .hero-content h1 {
+      color: #000;
+      font-weight: 700;
+      font-size: 2.4rem;
+      margin: 0 0 0.7rem 0;
+      letter-spacing: 0.03em;
     }
-
-    /* Main Content Sections */
-    main { max-width: 960px; margin: 2rem auto 4rem; padding: 0 1rem; }
-    section {
-      background: #fff; border-radius: 9px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid #eee;
-      padding: 2.5rem 3rem; margin-bottom: 3rem;
+    .hero-content p {
+      font-weight: 300;
+      color: #444;
+      font-size: 1.19rem;
+      margin: 0 0 1.4rem 0;
+      line-height: 1.5;
     }
-    section h2 { color: #b52003; font-size: 2rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: 0.03em; }
-    section p { color: #444; font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; }
-
-    /* About Section typography */
-    .about-block strong { color: #b52003; font-weight: 700; }
-
-    /* Call to Action Button */
-    button.cta-btn, .cta-btn {
+    .cta-btn.hero-cta {
+      align-self: flex-start;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      padding: 15px 27px;
+      font-size: 1.05rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(150,0,0,0.3);
+      border: none;
+      cursor: pointer;
       background: #b52003;
-      color: #fff;
-      padding: 16px 36px;
-      border: none; border-radius: 5px;
-      font-size: 1.1rem; cursor: pointer; letter-spacing: 0.05em;
-      box-shadow: 0 2px 8px rgba(181, 32, 3, 0.09); transition: background 0.2s;
-      display: inline-block; text-align: center; text-decoration: none;
+      color: white;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
     }
-    button.cta-btn:hover, button.cta-btn:focus, .cta-btn:hover, .cta-btn:focus {
-      background: #922000; outline: none;
+    .cta-btn.hero-cta:hover,
+    .cta-btn.hero-cta:focus {
+      background: #960000;
+      outline: none;
+    }
+    @media (max-width: 900px) {
+      .hero-section {
+        flex-direction: column;
+        border-radius: 9px;
+        padding: 0;
+        box-shadow: 0 2px 12px rgba(0,0,0,.07);
+        margin-bottom: 2rem;
+      }
+      .hero-img-wrap,
+      .hero-img {
+        width: 100%;
+        height: 220px;
+        max-height: 220px;
+        border-radius: 9px 9px 0 0;
+        box-shadow: none;
+        transition: none;
+      }
+      .hero-content {
+        border-radius: 0 0 9px 9px;
+        padding: 1.6rem 1rem 1.1rem 1rem;
+        min-width: unset;
+        background: rgba(255 255 255 / 0.95);
+        box-shadow: none;
+      }
     }
 
-    /* Projects Section Subcategory Tabs */
+    /* Section base style for continuous flow */
+    main {
+      max-width: 960px;
+      margin: 0 auto 4rem;
+      padding: 0 1rem;
+    }
+    section {
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      padding: 3rem 0;
+      margin: 0;
+    }
+    section h2 {
+      font-weight: 700;
+      color: #b52003;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.03em;
+    }
+    section p {
+      font-weight: 400;
+      color: #444;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .about-block strong {
+      font-weight: 700;
+      color: #b52003;
+    }
+
+    /* Projects subnav */
     .projects-subnav {
-      display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
     .projects-subnav button {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 600;
       background: #eee;
       border: none;
       padding: 10px 22px;
       border-radius: 25px;
-      font-weight: 600;
       color: #555;
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
+      user-select: none;
     }
-    .projects-subnav button.active, .projects-subnav button:hover {
-      background: #b52003; color: #fff;
+    .projects-subnav button.active,
+    .projects-subnav button:hover,
+    .projects-subnav button:focus-visible {
+      background: #b52003;
+      color: white;
+      outline-offset: 2px;
+      outline: 3px solid #960000;
     }
+
+    /* Projects grid */
     .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
     }
-    .project-card { background: #fafafa; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
-    .project-card:hover { transform: translateY(-5px); }
-    .project-thumb { flex-shrink: 0; width: 100%; height: 160px; object-fit: cover; background: #ddd; }
-    .project-info { padding: 1rem 1.2rem; flex-grow: 1; }
-    .project-info h3 { margin: 0 0 0.5rem; font-size: 1.2rem; color: #b52003; }
-    .project-info p { margin: 0; font-size: 1rem; color: #555; flex-grow: 1; }
+    .project-card {
+      background: rgba(250 250 250);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .project-card:hover, .project-card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(181, 32, 3, 0.25);
+      outline: none;
+    }
+    .project-thumb {
+      flex-shrink: 0;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #ddd;
+      border-bottom: 3px solid #b52003;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .project-thumb,
+    .project-card:focus-within .project-thumb {
+      transform: scale(1.03);
+    }
+    .project-info {
+      padding: 1rem 1.2rem;
+      flex-grow: 1;
+    }
+    .project-info h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b52003;
+    }
+    .project-info p {
+      margin: 0;
+      font-weight: 400;
+      color: #555;
+      flex-grow: 1;
+    }
 
     /* People Section */
-    .people-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; justify-items: center; align-items: start; }
-    .person-card { background: #fafafa; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 1.5rem 1rem 1rem 1rem; text-align: center; width: 100%; max-width: 300px; transition: transform 0.14s; }
-    .person-card:hover { transform: translateY(-2px) scale(1.016); }
-    .person-img-wrap { width: 150px; height: 150px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; box-shadow: 0 1px 8px rgba(0,0,0,0.10); }
-    .person-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: filter 0.33s cubic-bezier(.72,-0.01,.3,1.14);}
-    .person-card:hover .person-img, .person-img-wrap:focus-within .person-img { filter: grayscale(0%); }
-    .person-card h3 { color: #b52003; margin-top: 0.85rem; margin-bottom: 0.3rem; }
-    .person-card p { margin: 0; color: #555; font-size: 1.02em; }
+    .people-grid {
+      display: grid;
+      gap: 2rem;
+      justify-items: center;
+      align-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .person-card {
+      background: rgba(250 250 250);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+      max-width: 300px;
+      transition: transform 0.14s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .person-card:hover,
+    .person-card:focus-within {
+      transform: translateY(-2px) scale(1.016);
+      outline: none;
+    }
+    .person-img-wrap {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.10);
+      outline-offset: 4px;
+    }
+    .person-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.33s cubic-bezier(.72,-0.01,.3,1.14);
+      display: block;
+    }
+    .person-card:hover .person-img,
+    .person-card:focus-within .person-img {
+      filter: grayscale(0%);
+    }
+    .person-card h3 {
+      font-weight: 700;
+      color: #b52003;
+      margin-top: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+    .person-card p {
+      margin: 0;
+      font-weight: 300;
+      color: #555;
+      font-size: 1.02em;
+    }
 
     /* Instagram Widget Section */
-    .instagram-widget-section { margin-top: 2.5rem; background: #fff; border-radius: 9px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid #eee; padding: 2rem 2rem 1.6rem 2rem; text-align: center; }
-    .instagram-widget-section h2 { margin-bottom: 1.2rem; color: #b52003; }
-    .instagram-widget-placeholder { color: #aaa; font-size: 0.99rem; border: 1.5px dashed #ccc; padding: 1.3rem; border-radius: 8px; margin-top: 1rem; }
+    .instagram-widget-section {
+      margin-top: 2.5rem;
+      color: #444;
+      text-align: center;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem 3rem 1rem;
+    }
+    .instagram-widget-section h2 {
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: #b52003;
+      font-size: 2rem;
+    }
+
+    /* Contact Section */
+    #contact a {
+      color: #b52003;
+      font-weight: 500;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover,
+    #contact a:focus {
+      color: #960000;
+      outline: none;
+    }
 
     /* Footer */
-    .footer { text-align: center; color: #888; background: #fff; border-top: 1px solid #ccc; padding: 1rem 0; font-size: 0.95rem; margin-top: 2rem; }
+    .footer {
+      text-align: center;
+      color: #888;
+      background: transparent;
+      border-top: none;
+      padding: 1rem 0;
+      font-size: 0.95rem;
+      margin-top: 2rem;
+    }
 
     /* Floating Social Icons */
     .floating-icons {
-      position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
     }
     .floating-icons a {
-      display: flex; align-items: center; justify-content: center;
-      width: 50px; height: 50px;
-      border-radius: 50%; color: white; font-size: 26px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      color: white;
+      font-size: 26px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
     }
-    .instagram { background: #E4405F; }
-    .instagram:hover, .instagram:focus { background: #c73050; outline: none; }
-    .whatsapp { background: #25D366; }
-    .whatsapp:hover, .whatsapp:focus { background: #1ebe4d; outline: none; }
+    .instagram {
+      background: #E4405F;
+    }
+    .instagram:hover,
+    .instagram:focus {
+      background: #c73050;
+      outline: none;
+    }
+    .whatsapp {
+      background: #25D366;
+    }
+    .whatsapp:hover,
+    .whatsapp:focus {
+      background: #1ebe4d;
+      outline: none;
+    }
+    .email {
+      background: #b52003;
+    }
+    .email:hover,
+    .email:focus {
+      background: #960000;
+      outline: none;
+    }
     @media (max-width: 480px) {
-      .floating-icons { flex-direction: row; bottom: 10px; right: 10px; gap: 8px; }
-      .floating-icons a { width: 40px; height: 40px; font-size: 20px; }
+      .floating-icons {
+        flex-direction: row;
+        bottom: 10px;
+        right: 10px;
+        gap: 8px;
+      }
+      .floating-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
     }
   </style>
   <!-- FontAwesome CDN for icons -->
@@ -183,7 +519,10 @@
   <header class="site-header">
     <div class="container">
       <div class="logo">
-        <a href="#home" aria-label="Svagram Homepage" title="Svagram">Svagram</a>
+        <a href="#home" aria-label="Svagram Homepage" title="Svagram">
+          <img src="https://via.placeholder.com/130x40?text=Svagram+Logo" alt="Svagram Logo" />
+          Svagram
+        </a>
       </div>
       <nav class="main-nav" aria-label="Primary Navigation">
         <ul>
@@ -198,40 +537,34 @@
   </header>
 
   <main>
-
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="hero">
-      <div class="hero-img-wrap">
-        <img src="https://via.placeholder.com/1200x500?text=Svagram+Project+Showcase" alt="Featured Svagram Project" class="hero-img"/>
+    <!-- HERO -->
+    <section class="hero-section" id="hero" tabindex="-1">
+      <div class="hero-img-wrap" tabindex="0">
+        <img src="https://via.placeholder.com/1200x500?text=Svagram+Project+Showcase" alt="Featured Svagram Project" class="hero-img" />
       </div>
       <div class="hero-content">
         <h1>Your Dream, Our Craft</h1>
-        <p>
-          Discover living spaces at the intersection of individuality, harmony, and innovation.<br>
-          <span style="color:#b52003; font-weight:bold;">Showcasing: Modern Family Home Project</span>
+        <p>Discover living spaces at the intersection of individuality, harmony, and innovation.<br>
+          <strong style="color:#b52003;">Showcasing: Modern Family Home Project</strong>
         </p>
         <a href="#projects" class="cta-btn hero-cta">View Our Projects</a>
       </div>
     </section>
 
-    <!-- ABOUT SVA GRAM -->
-    <section id="home" tabindex="-1">
+    <!-- ABOUT -->
+    <section id="home" tabindex="-1" aria-label="About Svagram">
       <div class="about-block" style="margin-bottom:1.5rem;">
         <p>
-          <strong>sva:</strong> (sanskrit: self/own)<br>
-          <strong>gram</strong> (sanskrit: village)
+          <strong>sva:</strong> (Sanskrit: self/own)<br>
+          <strong>gram</strong> (Sanskrit: village)
         </p>
       </div>
-      <p>
-        Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.
-      </p>
-      <p>
-        We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, where the client's aspirations meld seamlessly with our expertise and craftsmanship.
-      </p>
+      <p>Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.</p>
+      <p>We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, where the client's aspirations meld seamlessly with our expertise and craftsmanship.</p>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" tabindex="-1">
+    <section id="projects" tabindex="-1" aria-label="Svagram Projects">
       <h2>Projects</h2>
       <nav class="projects-subnav" aria-label="Project Categories">
         <button class="active" data-category="residential" aria-pressed="true">Residential</button>
@@ -239,37 +572,34 @@
         <button data-category="interior" aria-pressed="false">Interior</button>
         <button data-category="urban-design" aria-pressed="false">Urban Design</button>
       </nav>
-      <div class="projects-grid" id="projects-grid">
+      <div class="projects-grid" id="projects-grid" tabindex="0" aria-live="polite" aria-atomic="true">
         <!-- Projects content populated by JS -->
       </div>
     </section>
 
     <!-- INSTAGRAM FEED WIDGET -->
-    <section class="instagram-widget-section" id="instagram">
+    <section class="instagram-widget-section" id="instagram" tabindex="-1" aria-label="Instagram Feed">
       <h2>On Instagram</h2>
-      <!-- Replace the placeholder below with your Elfsight/embed widget code when ready -->
-      <div class="instagram-widget-placeholder">
-        <i class="fab fa-instagram" style="color:#b52003;font-size:1.7em;"></i><br>
-        Your latest Instagram posts (max 3) will appear here once you add your feed widget code from Elfsight, Common Ninja, or your chosen provider.<br>
-        <small>Go to Elfsight, create/connect your widget for https://www.instagram.com/sva.gram, copy the embed code, and paste it here.</small>
-      </div>
+      <!-- Elfsight Instagram Feed Widget -->
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-d39fd8bd-c726-4d6b-aacf-8b89a083ddbc" data-elfsight-app-lazy></div>
     </section>
 
-    <!-- PEOPLE SECTION -->
-    <section id="people" tabindex="-1">
+    <!-- PEOPLE -->
+    <section id="people" tabindex="-1" aria-label="People at Svagram">
       <h2>People</h2>
       <p>Meet the people behind Svagram. Passionate about architecture, nature, and craftsmanship.</p>
       <div class="people-grid">
-        <div class="person-card">
+        <div class="person-card" tabindex="0">
           <div class="person-img-wrap">
-            <img src="https://via.placeholder.com/280x280?text=Nelvin+Raphael" alt="Nelvin Raphael photo" class="person-img"/>
+            <img src="https://via.placeholder.com/280x280?text=Nelvin+Raphael" alt="Nelvin Raphael photo" class="person-img" />
           </div>
           <h3>Nelvin Raphael</h3>
           <p>Principal Architect</p>
         </div>
-        <div class="person-card">
+        <div class="person-card" tabindex="0">
           <div class="person-img-wrap">
-            <img src="https://via.placeholder.com/280x280?text=Hyda+Davis" alt="Hyda Davis photo" class="person-img"/>
+            <img src="https://via.placeholder.com/280x280?text=Hyda+Davis" alt="Hyda Davis photo" class="person-img" />
           </div>
           <h3>Hyda Davis</h3>
           <p>Founder</p>
@@ -277,27 +607,30 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" tabindex="-1">
+    <!-- CONTACT -->
+    <section id="contact" tabindex="-1" aria-label="Contact Svagram">
       <h2>Contact</h2>
       <p>Get in touch with Svagram Architectural Practice for inquiries, collaborations, or consultations.</p>
-      <p>Email: <a href="mailto:info@svagram.com" style="color:#b52003;">info@svagram.com</a></p>
-      <p>Phone: <a href="tel:+1234567890" style="color:#b52003;">+1 234 567 890</a></p>
+      <p>Email: <a href="mailto:projects@svagram.com" style="color:#b52003;">projects@svagram.com</a></p>
+      <p>Phone: <a href="tel:+919020515114" style="color:#b52003;">+91 90205 15114</a></p>
       <p>Address: 123 Architecture Blvd, City, Country</p>
     </section>
   </main>
 
-  <div class="footer">
+  <footer class="footer" role="contentinfo">
     &copy; 2025 Svagram. All rights reserved.
-  </div>
+  </footer>
 
   <!-- Floating Social Icons -->
-  <div class="floating-icons" aria-label="Floating Social Media Links">
-    <a href="https://www.instagram.com/sva.gram" target="_blank" class="instagram" aria-label="Instagram" rel="noopener">
-      <i class="fab fa-instagram"></i>
+  <div class="floating-icons" aria-label="Floating contact and social media links">
+    <a href="https://www.instagram.com/sva.gram" target="_blank" class="instagram" aria-label="Instagram profile" rel="noopener">
+      <i class="fab fa-instagram" aria-hidden="true"></i>
     </a>
-    <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER" target="_blank" class="whatsapp" aria-label="WhatsApp" rel="noopener">
-      <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/919020515114" target="_blank" class="whatsapp" aria-label="WhatsApp chat" rel="noopener">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="mailto:projects@svagram.com" class="email" aria-label="Email projects at Svagram">
+      <i class="fas fa-envelope" aria-hidden="true"></i>
     </a>
   </div>
 
@@ -311,7 +644,7 @@
       mainNav.classList.toggle('open');
     });
 
-    // Project subcategory buttons and content
+    // Projects subcategory buttons and content
     const projectsData = {
       residential: [
         {
@@ -374,6 +707,7 @@
       projectsData[category].forEach(({title, description, img}) => {
         const card = document.createElement('article');
         card.className = 'project-card';
+        card.tabIndex = 0;
         card.innerHTML = `
           <img src="${img}" alt="${title} thumbnail" class="project-thumb" loading="lazy"/>
           <div class="project-info">
