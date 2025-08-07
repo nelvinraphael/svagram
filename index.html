@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Svagram Architectural Practice</title>
-  <!-- Google Fonts: Roboto with weights 300,400,500,700 -->
+  <!-- Google Fonts: Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     /* Reset & base */
@@ -16,9 +16,7 @@
       font-weight: 400;
       margin: 0;
       padding: 0;
-      background-image: geometric_circular_dot_shape_background.jpg;
-      background-repeat: repeat;
-      background-color: #f6f7fb;
+      background-color: #ffffff;
       color: #222;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -41,17 +39,19 @@
     }
     button, .cta-btn {
       font-family: 'Roboto', Arial, sans-serif;
-      font-weight: 700; /* Bold for buttons */
+      font-weight: 700;
       letter-spacing: 0.05em;
+      cursor: pointer;
+      border: none;
     }
 
     /* Header */
     .site-header {
       background: transparent;
       border-bottom: none;
-      position: sticky; 
-      top: 0; 
-      width: 100%; 
+      position: sticky;
+      top: 0;
+      width: 100%;
       z-index: 100;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       backdrop-filter: saturate(180%) blur(20px);
@@ -242,7 +242,7 @@
       }
     }
 
-    /* Section base style for continuous flow */
+    /* Sections - continuous flow */
     main {
       max-width: 960px;
       margin: 0 auto 4rem;
@@ -356,7 +356,7 @@
     /* People Section */
     .people-grid {
       display: grid;
-      gap: 2rem;
+      gap: 1.5rem;
       justify-items: center;
       align-items: start;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -369,13 +369,14 @@
       text-align: center;
       max-width: 300px;
       transition: transform 0.14s ease;
-      cursor: default;
+      cursor: pointer;
       user-select: none;
+      outline-offset: 3px;
     }
     .person-card:hover,
     .person-card:focus-within {
       transform: translateY(-2px) scale(1.016);
-      outline: none;
+      outline: 3px solid #b52003;
     }
     .person-img-wrap {
       width: 150px;
@@ -511,6 +512,47 @@
         font-size: 20px;
       }
     }
+
+    /* Modal for CV display */
+    .cv-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1500;
+      overflow: auto;
+      outline: none;
+    }
+    .cv-modal.open {
+      display: block;
+    }
+    .cv-modal-backdrop {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1400;
+    }
+    .cv-modal-content {
+      position: relative;
+      background: white;
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      z-index: 1501;
+    }
+    .cv-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #b52003;
+    }
   </style>
   <!-- FontAwesome CDN for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -590,14 +632,14 @@
       <h2>People</h2>
       <p>Meet the people behind Svagram. Passionate about architecture, nature, and craftsmanship.</p>
       <div class="people-grid">
-        <div class="person-card" tabindex="0">
+        <div class="person-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="cv-modal" aria-label="Open CV for Nelvin Raphael">
           <div class="person-img-wrap">
             <img src="https://via.placeholder.com/280x280?text=Nelvin+Raphael" alt="Nelvin Raphael photo" class="person-img" />
           </div>
           <h3>Nelvin Raphael</h3>
           <p>Principal Architect</p>
         </div>
-        <div class="person-card" tabindex="0">
+        <div class="person-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="cv-modal" aria-label="Open CV for Hyda Davis">
           <div class="person-img-wrap">
             <img src="https://via.placeholder.com/280x280?text=Hyda+Davis" alt="Hyda Davis photo" class="person-img" />
           </div>
@@ -634,6 +676,18 @@
     </a>
   </div>
 
+  <!-- CV Modal for People -->
+  <div id="cv-modal" class="cv-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title" tabindex="-1">
+    <div class="cv-modal-content">
+      <button class="cv-modal-close" aria-label="Close CV">&times;</button>
+      <h3 id="cv-modal-title">CV Title</h3>
+      <div class="cv-modal-body">
+        <!-- CV content dynamically inserted here -->
+      </div>
+    </div>
+    <div class="cv-modal-backdrop"></div>
+  </div>
+
   <script>
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -644,7 +698,7 @@
       mainNav.classList.toggle('open');
     });
 
-    // Projects subcategory buttons and content
+    // Projects data and interactivity
     const projectsData = {
       residential: [
         {
@@ -725,7 +779,64 @@
         renderProjects(category);
       });
     });
+
+    // CV Modal interaction
+    const modal = document.getElementById('cv-modal');
+    const modalTitle = modal.querySelector('#cv-modal-title');
+    const modalBody = modal.querySelector('.cv-modal-body');
+    const closeBtn = modal.querySelector('.cv-modal-close');
+    const backdrop = modal.querySelector('.cv-modal-backdrop');
+
+    // CV data for each person
+    const cvData = {
+      'Nelvin Raphael': `
+        <p><strong>Principal Architect at Svagram</strong></p>
+        <p>Nelvin Raphael has over 15 years of experience in residential and sustainable architecture, specializing in creating light-filled, eco-conscious homes that blend seamlessly with their surroundings.</p>
+        <p>Education: Master of Architecture, XYZ University</p>
+        <p>Skills: Project management, design leadership, eco-friendly building practices</p>
+      `,
+      'Hyda Davis': `
+        <p><strong>Founder of Svagram</strong></p>
+        <p>Hyda Davis brings visionary leadership and expertise in urban planning and interior design, focusing on client collaboration and sustainable urban living environments.</p>
+        <p>Education: Bachelor of Environmental Design, ABC College</p>
+        <p>Skills: Client relations, project conceptualization, sustainable urban design</p>
+      `
+    };
+
+    function openModal(personName) {
+      modalTitle.textContent = `${personName} - CV`;
+      modalBody.innerHTML = cvData[personName] || '<p>CV is not available.</p>';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      modal.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    document.querySelectorAll('.person-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const personName = card.querySelector('h3').textContent.trim();
+        openModal(personName);
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const personName = card.querySelector('h3').textContent.trim();
+          openModal(personName);
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
-
