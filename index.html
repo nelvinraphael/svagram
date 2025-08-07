@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Svagram Architectural Practice</title>
   <style>
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -16,33 +13,16 @@
       background: #f6f7fb;
       color: #222;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
-    }
+    a { color: inherit; text-decoration: none; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 6px; }
 
     /* Header */
     .site-header {
       background: #fff;
       border-bottom: 1px solid #ccc;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      z-index: 100;
+      position: sticky; top: 0; width: 100%; z-index: 100;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
     .container {
@@ -55,117 +35,86 @@
       height: 60px;
     }
     .logo a {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #b52003;
-      text-decoration: none;
-      letter-spacing: 0.05em;
+      font-size: 1.5rem; font-weight: bold; color: #b52003; letter-spacing: 0.05em;
     }
     .main-nav ul {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
+      display: flex; gap: 2rem; align-items: center;
     }
     .main-nav a {
-      color: #222;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      color: #222; font-size: 1rem; font-weight: 600; transition: color 0.3s ease;
     }
     .main-nav a:hover,
     .main-nav a:focus {
-      color: #b52003;
-      outline: none;
+      color: #b52003; outline: none;
     }
     .menu-toggle {
       font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: none;
+      background: none; border: none; cursor: pointer; display: none;
       color: #b52003;
     }
-
-    /* Mobile Responsive Nav */
     @media (max-width: 768px) {
       .main-nav {
-        position: fixed;
-        top: 60px;
-        right: 0;
-        background: #fff;
-        width: 70%;
-        max-width: 250px;
-        height: calc(100% - 60px);
+        position: fixed; top: 60px; right: 0; background: #fff;
+        width: 70%; max-width: 250px; height: calc(100% - 60px);
         box-shadow: -4px 0 12px rgba(0,0,0,0.1);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+        transform: translateX(100%); transition: transform 0.3s ease;
       }
-      .main-nav.open {
-        transform: translateX(0);
-      }
-      .main-nav ul {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 2rem 1.5rem;
-      }
-      .menu-toggle {
-        display: block;
-      }
+      .main-nav.open { transform: translateX(0); }
+      .main-nav ul { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
+      .menu-toggle { display: block; }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      width: 100%; background: #fff; border-radius: 9px; box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-bottom: 2.5rem; overflow: hidden;
+    }
+    .hero-img-wrap { flex: 2; min-width: 320px; max-height: 500px; overflow: hidden; }
+    .hero-img { width: 100%; height: 360px; max-width: 100%; object-fit: cover; display: block; }
+    .hero-content {
+      flex: 1; min-width: 270px;
+      padding: 2.5rem 2rem 2.5rem 2.2rem;
+      display: flex; flex-direction: column; justify-content: center; background: #fff;
+    }
+    .hero-content h1 { color: #000; font-size: 2.4rem; margin: 0 0 0.7rem 0; font-weight: 700; letter-spacing: 0.03em; }
+    .hero-content p { color: #444; font-size: 1.19rem; margin: 0 0 1.4rem 0; line-height: 1.5; }
+    .cta-btn.hero-cta { align-self: flex-start; margin-top: 0.2rem; margin-bottom: 0.2rem; padding: 15px 27px; font-size: 1.05rem; }
+
+    @media (max-width: 900px) {
+      .hero-section { flex-direction: column; border-radius: 0; box-shadow: 0 2px 12px rgba(0,0,0,.07); padding-bottom: 0; }
+      .hero-img-wrap, .hero-img { width: 100%; height: 220px; max-height: 220px; border-radius: 0; }
+      .hero-content { padding: 1.6rem 1rem 1.1rem 1rem; min-width: unset; }
     }
 
     /* Main Content Sections */
-    main {
-      max-width: 960px;
-      margin: 2rem auto 4rem;
-      padding: 0 1rem;
-    }
+    main { max-width: 960px; margin: 2rem auto 4rem; padding: 0 1rem; }
     section {
-      background: #fff;
-      border-radius: 9px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      border: 1px solid #eee;
-      padding: 2.5rem 3rem;
-      margin-bottom: 3rem;
+      background: #fff; border-radius: 9px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid #eee;
+      padding: 2.5rem 3rem; margin-bottom: 3rem;
     }
-    section h2 {
-      color: #b52003;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-    section p {
-      color: #444;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
+    section h2 { color: #b52003; font-size: 2rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: 0.03em; }
+    section p { color: #444; font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+    /* About Section typography */
+    .about-block strong { color: #b52003; font-weight: 700; }
 
     /* Call to Action Button */
-    button.cta-btn {
+    button.cta-btn, .cta-btn {
       background: #b52003;
       color: #fff;
       padding: 16px 36px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      letter-spacing: 0.05em;
-      box-shadow: 0 2px 8px rgba(181, 32, 3, 0.09);
-      transition: background 0.2s;
+      border: none; border-radius: 5px;
+      font-size: 1.1rem; cursor: pointer; letter-spacing: 0.05em;
+      box-shadow: 0 2px 8px rgba(181, 32, 3, 0.09); transition: background 0.2s;
+      display: inline-block; text-align: center; text-decoration: none;
     }
-    button.cta-btn:hover,
-    button.cta-btn:focus {
-      background: #922000;
-      outline: none;
+    button.cta-btn:hover, button.cta-btn:focus, .cta-btn:hover, .cta-btn:focus {
+      background: #922000; outline: none;
     }
 
     /* Projects Section Subcategory Tabs */
     .projects-subnav {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+      display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap;
     }
     .projects-subnav button {
       background: #eee;
@@ -177,115 +126,54 @@
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
     }
-    .projects-subnav button.active,
-    .projects-subnav button:hover {
-      background: #b52003;
-      color: #fff;
+    .projects-subnav button.active, .projects-subnav button:hover {
+      background: #b52003; color: #fff;
     }
-
-    /* Projects Content Grid */
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem;
     }
-    .project-card {
-      background: #fafafa;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-    .project-thumb {
-      flex-shrink: 0;
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      background: #ddd;
-    }
-    .project-info {
-      padding: 1rem 1.2rem;
-      flex-grow: 1;
-    }
-    .project-info h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
-      color: #b52003;
-    }
-    .project-info p {
-      margin: 0;
-      font-size: 1rem;
-      color: #555;
-      flex-grow: 1;
-    }
+    .project-card { background: #fafafa; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-thumb { flex-shrink: 0; width: 100%; height: 160px; object-fit: cover; background: #ddd; }
+    .project-info { padding: 1rem 1.2rem; flex-grow: 1; }
+    .project-info h3 { margin: 0 0 0.5rem; font-size: 1.2rem; color: #b52003; }
+    .project-info p { margin: 0; font-size: 1rem; color: #555; flex-grow: 1; }
+
+    /* People Section */
+    .people-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; justify-items: center; align-items: start; }
+    .person-card { background: #fafafa; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 1.5rem 1rem 1rem 1rem; text-align: center; width: 100%; max-width: 300px; transition: transform 0.14s; }
+    .person-card:hover { transform: translateY(-2px) scale(1.016); }
+    .person-img-wrap { width: 150px; height: 150px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; box-shadow: 0 1px 8px rgba(0,0,0,0.10); }
+    .person-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: filter 0.33s cubic-bezier(.72,-0.01,.3,1.14);}
+    .person-card:hover .person-img, .person-img-wrap:focus-within .person-img { filter: grayscale(0%); }
+    .person-card h3 { color: #b52003; margin-top: 0.85rem; margin-bottom: 0.3rem; }
+    .person-card p { margin: 0; color: #555; font-size: 1.02em; }
+
+    /* Instagram Widget Section */
+    .instagram-widget-section { margin-top: 2.5rem; background: #fff; border-radius: 9px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid #eee; padding: 2rem 2rem 1.6rem 2rem; text-align: center; }
+    .instagram-widget-section h2 { margin-bottom: 1.2rem; color: #b52003; }
+    .instagram-widget-placeholder { color: #aaa; font-size: 0.99rem; border: 1.5px dashed #ccc; padding: 1.3rem; border-radius: 8px; margin-top: 1rem; }
 
     /* Footer */
-    .footer {
-      text-align: center;
-      color: #888;
-      background: #fff;
-      border-top: 1px solid #ccc;
-      padding: 1rem 0;
-      font-size: 0.95rem;
-      margin-top: 2rem;
-    }
+    .footer { text-align: center; color: #888; background: #fff; border-top: 1px solid #ccc; padding: 1rem 0; font-size: 0.95rem; margin-top: 2rem; }
 
     /* Floating Social Icons */
     .floating-icons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 1000;
+      position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000;
     }
     .floating-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      color: white;
-      font-size: 26px;
-      text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+      width: 50px; height: 50px;
+      border-radius: 50%; color: white; font-size: 26px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background-color 0.3s ease;
     }
-    .instagram {
-      background: #E4405F;
-    }
-    .instagram:hover,
-    .instagram:focus {
-      background: #c73050;
-      outline: none;
-    }
-    .whatsapp {
-      background: #25D366;
-    }
-    .whatsapp:hover,
-    .whatsapp:focus {
-      background: #1ebe4d;
-      outline: none;
-    }
+    .instagram { background: #E4405F; }
+    .instagram:hover, .instagram:focus { background: #c73050; outline: none; }
+    .whatsapp { background: #25D366; }
+    .whatsapp:hover, .whatsapp:focus { background: #1ebe4d; outline: none; }
     @media (max-width: 480px) {
-      .floating-icons {
-        flex-direction: row;
-        bottom: 10px;
-        right: 10px;
-        gap: 8px;
-      }
-      .floating-icons a {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-      }
+      .floating-icons { flex-direction: row; bottom: 10px; right: 10px; gap: 8px; }
+      .floating-icons a { width: 40px; height: 40px; font-size: 20px; }
     }
   </style>
   <!-- FontAwesome CDN for icons -->
@@ -310,14 +198,39 @@
   </header>
 
   <main>
-    <!-- Home Section -->
-    <section id="home" tabindex="-1">
-      <h2>Welcome to Svagram</h2>
-      <p>Design with impact. Build for connection. Create for the future.</p>
-      <button class="cta-btn" onclick="alert('Thank you for getting started with Svagram!');">Get Started</button>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-img-wrap">
+        <img src="https://via.placeholder.com/1200x500?text=Svagram+Project+Showcase" alt="Featured Svagram Project" class="hero-img"/>
+      </div>
+      <div class="hero-content">
+        <h1>Your Dream, Our Craft</h1>
+        <p>
+          Discover living spaces at the intersection of individuality, harmony, and innovation.<br>
+          <span style="color:#b52003; font-weight:bold;">Showcasing: Modern Family Home Project</span>
+        </p>
+        <a href="#projects" class="cta-btn hero-cta">View Our Projects</a>
+      </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ABOUT SVA GRAM -->
+    <section id="home" tabindex="-1">
+      <div class="about-block" style="margin-bottom:1.5rem;">
+        <p>
+          <strong>sva:</strong> (sanskrit: self/own)<br>
+          <strong>gram</strong> (sanskrit: village)
+        </p>
+      </div>
+      <p>
+        Each person builds their abode with dreams that reflect their unique identity, purpose, design, space, and patterns. In crafting these homes, they don't just build structures on plots of land; they cultivate an entire ecosystem, welcoming diverse flora and fauna. Together, they nurture an ambiance that echoes the balance and harmony of a village.
+      </p>
+      <p>
+        We hold the belief that such homes cannot be solely envisioned by architects. They emerge through a collaborative process, where the client's aspirations meld seamlessly with our expertise and craftsmanship.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
     <section id="projects" tabindex="-1">
       <h2>Projects</h2>
       <nav class="projects-subnav" aria-label="Project Categories">
@@ -331,30 +244,40 @@
       </div>
     </section>
 
-    <!-- People Section -->
+    <!-- INSTAGRAM FEED WIDGET -->
+    <section class="instagram-widget-section" id="instagram">
+      <h2>On Instagram</h2>
+      <!-- Replace the placeholder below with your Elfsight/embed widget code when ready -->
+      <div class="instagram-widget-placeholder">
+        <i class="fab fa-instagram" style="color:#b52003;font-size:1.7em;"></i><br>
+        Your latest Instagram posts (max 3) will appear here once you add your feed widget code from Elfsight, Common Ninja, or your chosen provider.<br>
+        <small>Go to Elfsight, create/connect your widget for https://www.instagram.com/sva.gram, copy the embed code, and paste it here.</small>
+      </div>
+    </section>
+
+    <!-- PEOPLE SECTION -->
     <section id="people" tabindex="-1">
       <h2>People</h2>
-      <p>Meet the dedicated team behind Svagram. Passionate architects and designers committed to excellence.</p>
-      <div class="people-grid" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.8rem;">
-        <div style="background:#fafafa; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:1rem; text-align:center;">
-          <img src="https://via.placeholder.com/240x240?text=Person+1" alt="Person 1 Photo" />
-          <h3 style="color:#b52003; margin-top:0.75rem;">Architect A</h3>
-          <p>Lead Architect</p>
+      <p>Meet the people behind Svagram. Passionate about architecture, nature, and craftsmanship.</p>
+      <div class="people-grid">
+        <div class="person-card">
+          <div class="person-img-wrap">
+            <img src="https://via.placeholder.com/280x280?text=Nelvin+Raphael" alt="Nelvin Raphael photo" class="person-img"/>
+          </div>
+          <h3>Nelvin Raphael</h3>
+          <p>Principal Architect</p>
         </div>
-        <div style="background:#fafafa; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:1rem; text-align:center;">
-          <img src="https://via.placeholder.com/240x240?text=Person+2" alt="Person 2 Photo" />
-          <h3 style="color:#b52003; margin-top:0.75rem;">Designer B</h3>
-          <p>Interior Designer</p>
-        </div>
-        <div style="background:#fafafa; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:1rem; text-align:center;">
-          <img src="https://via.placeholder.com/240x240?text=Person+3" alt="Person 3 Photo" />
-          <h3 style="color:#b52003; margin-top:0.75rem;">Planner C</h3>
-          <p>Urban Planner</p>
+        <div class="person-card">
+          <div class="person-img-wrap">
+            <img src="https://via.placeholder.com/280x280?text=Hyda+Davis" alt="Hyda Davis photo" class="person-img"/>
+          </div>
+          <h3>Hyda Davis</h3>
+          <p>Founder</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT SECTION -->
     <section id="contact" tabindex="-1">
       <h2>Contact</h2>
       <p>Get in touch with Svagram Architectural Practice for inquiries, collaborations, or consultations.</p>
@@ -370,7 +293,7 @@
 
   <!-- Floating Social Icons -->
   <div class="floating-icons" aria-label="Floating Social Media Links">
-    <a href="https://www.instagram.com/yourprofile" target="_blank" class="instagram" aria-label="Instagram" rel="noopener">
+    <a href="https://www.instagram.com/sva.gram" target="_blank" class="instagram" aria-label="Instagram" rel="noopener">
       <i class="fab fa-instagram"></i>
     </a>
     <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER" target="_blank" class="whatsapp" aria-label="WhatsApp" rel="noopener">
@@ -439,22 +362,15 @@
         }
       ]
     };
-
     const buttons = document.querySelectorAll('.projects-subnav button');
     const projectsGrid = document.getElementById('projects-grid');
-
     function renderProjects(category) {
-      // Update aria-pressed and active states on buttons
       buttons.forEach(btn => {
         const isActive = btn.dataset.category === category;
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-pressed', isActive);
       });
-
-      // Clear current projects
       projectsGrid.innerHTML = '';
-
-      // Populate projects for selected category
       projectsData[category].forEach(({title, description, img}) => {
         const card = document.createElement('article');
         card.className = 'project-card';
@@ -468,11 +384,7 @@
         projectsGrid.appendChild(card);
       });
     }
-
-    // Initialize with residential projects
     renderProjects('residential');
-
-    // Button event listeners
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const category = button.dataset.category;
